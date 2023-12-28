@@ -1,0 +1,1419 @@
+<html><script>(function(){class RuffleMimeType{constructor(a,b,c){this.type=a,this.description=b,this.suffixes=c}}class RuffleMimeTypeArray{constructor(a){this.__mimetypes=[],this.__named_mimetypes={};for(let b of a)this.install(b)}install(a){let b=this.__mimetypes.length;this.__mimetypes.push(a),this.__named_mimetypes[a.type]=a,this[a.type]=a,this[b]=a}item(a){return this.__mimetypes[a]}namedItem(a){return this.__named_mimetypes[a]}get length(){return this.__mimetypes.length}}class RufflePlugin extends RuffleMimeTypeArray{constructor(a,b,c,d){super(d),this.name=a,this.description=b,this.filename=c}install(a){a.enabledPlugin||(a.enabledPlugin=this),super.install(a)}}class RufflePluginArray{constructor(a){this.__plugins=[],this.__named_plugins={};for(let b of a)this.install(b)}install(a){let b=this.__plugins.length;this.__plugins.push(a),this.__named_plugins[a.name]=a,this[a.name]=a,this[b]=a}item(a){return this.__plugins[a]}namedItem(a){return this.__named_plugins[a]}get length(){return this.__plugins.length}}const FLASH_PLUGIN=new RufflePlugin("Shockwave Flash","Shockwave Flash 32.0 r0","ruffle.js",[new RuffleMimeType("application/futuresplash","Shockwave Flash","spl"),new RuffleMimeType("application/x-shockwave-flash","Shockwave Flash","swf"),new RuffleMimeType("application/x-shockwave-flash2-preview","Shockwave Flash","swf"),new RuffleMimeType("application/vnd.adobe.flash-movie","Shockwave Flash","swf")]);function install_plugin(a){navigator.plugins.install||Object.defineProperty(navigator,"plugins",{value:new RufflePluginArray(navigator.plugins),writable:!1}),navigator.plugins.install(a),0<a.length&&!navigator.mimeTypes.install&&Object.defineProperty(navigator,"mimeTypes",{value:new RuffleMimeTypeArray(navigator.mimeTypes),writable:!1});for(var b=0;b<a.length;b+=1)navigator.mimeTypes.install(a[b])}install_plugin(FLASH_PLUGIN);})();</script><script src="Consensus%20Across%20Continents-Dateien/ruffle.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body{margin-left:0;margin-right:0;margin-top:0}#bN015htcoyT__google-cache-hdr{background:#f8f9fa;font:13px arial,sans-serif;text-align:left;color:#202124;border:0;margin:0;border-bottom:1px solid #dadce0;line-height:16px;padding:16px 28px 24px 28px}#bN015htcoyT__google-cache-hdr *{display:inline;font:inherit;text-align:inherit;color:inherit;line-height:inherit;background:none;border:0;margin:0;padding:0;letter-spacing:0}#bN015htcoyT__google-cache-hdr a{text-decoration:none;color:#1a0dab}#bN015htcoyT__google-cache-hdr a:hover{text-decoration:underline}#bN015htcoyT__google-cache-hdr a:visited{color:#4b11a8}#bN015htcoyT__google-cache-hdr div{display:block;margin-top:4px}#bN015htcoyT__google-cache-hdr b{font-weight:bold;display:inline-block;direction:ltr}</style><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head><body vlink="blue" link="blue" bgcolor="#ffffff"><div id="bN015htcoyT__google-cache-hdr"><div><span>Dies ist die HTML-Version der Datei <a href="https://sedna.cs.umd.edu/818/papers/hc.pdf">https://sedna.cs.umd.edu/818/papers/hc.pdf</a>. Google erzeugt beim Crawlen des Web automatisch HTML-Versionen von Dokumenten.</span></div><span style="display:inline-block;margin-top:8px;color:#70757a"><span>Tipp: Um deinen Suchbegriff schnell auf dieser Seite zu finden, drücke <b>Strg+F</b> bzw. <b>⌘-F</b> (Mac) und verwende die Suchleiste.</span></span></div><div style="position:relative;">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Producer" content="pdfTeX-1.40.17">
+<meta name="Creator" content="TeX">
+<meta name="CreationDate" content="D:20201109113459-05'00'">
+<meta name="ModDate" content="D:20201109113459-05'00'">
+<meta name="Fullbanner" content="This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) kpathsea version 6.2.2">
+<title>Consensus Across Continents</title>
+
+<table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="1"><b>Page 1</b></a></font></td></tr></tbody></table><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:643;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:33px;font-family:Times">
+<div style="position:absolute;top:258;left:242"><nobr>Consensus Across Continents</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:14px;font-family:Times">
+<div style="position:absolute;top:318;left:291"><nobr>Benjamin Bengfort, Rebecca Bilbro, Pete Keleher</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:338;left:357"><nobr>Department of Computer Science</nobr></div>
+<div style="position:absolute;top:356;left:307"><nobr>University of Maryland, College Park, MD, USA</nobr></div>
+<div style="position:absolute;top:373;left:339"><nobr>{bengfort,rbilbro,keleher}@cs.umd.edu</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:433;left:88"><nobr>Abstract—Distributing data storage systems across wide ge-</nobr></div>
+<div style="position:absolute;top:448;left:73"><nobr>ographic areas provides resilience to catastrophic failure and</nobr></div>
+<div style="position:absolute;top:463;left:73"><nobr>improves performance by localizing user access. However, as</nobr></div>
+<div style="position:absolute;top:478;left:73"><nobr>network distance increases, the impact of failure modes such</nobr></div>
+<div style="position:absolute;top:493;left:73"><nobr>as partitions and communication variability pose significant chal-</nobr></div>
+<div style="position:absolute;top:508;left:73"><nobr>lenges to coordination that impair strong consistency, particularly</nobr></div>
+<div style="position:absolute;top:523;left:73"><nobr>when systems scale beyond a handful of replicas. In order to</nobr></div>
+<div style="position:absolute;top:538;left:73"><nobr>balance consistency and performance in a multi-region context,</nobr></div>
+<div style="position:absolute;top:553;left:73"><nobr>geo-distributed consensus must be flexible, adapting to changing</nobr></div>
+<div style="position:absolute;top:568;left:73"><nobr>network conditions and user behavior.</nobr></div>
+<div style="position:absolute;top:583;left:88"><nobr>In this paper we introduce Alia, a hierarchical consensus pro-</nobr></div>
+<div style="position:absolute;top:598;left:73"><nobr>tocol that implements and extends Vertical Paxos, designed to im-</nobr></div>
+<div style="position:absolute;top:613;left:73"><nobr>plement large, strongly-consistent and adaptable geo-replicated</nobr></div>
+<div style="position:absolute;top:628;left:73"><nobr>consensus groups. Alia splits coordination responsibility across</nobr></div>
+<div style="position:absolute;top:643;left:73"><nobr>two tiers: a root quorum responsible for safely moving the</nobr></div>
+<div style="position:absolute;top:657;left:73"><nobr>system through reconfigurations, and subquorums that manage</nobr></div>
+<div style="position:absolute;top:672;left:73"><nobr>accesses. Subquorums intersect with the root quorum using a</nobr></div>
+<div style="position:absolute;top:687;left:73"><nobr>novel method, delegated voting, which ensures that all replicas</nobr></div>
+<div style="position:absolute;top:702;left:73"><nobr>participate in both consensus tiers and provide transparent,</nobr></div>
+<div style="position:absolute;top:717;left:73"><nobr>linearizable guarantees across the entire system. This design</nobr></div>
+<div style="position:absolute;top:732;left:73"><nobr>ensures Alia can optimize throughput and availability by flexibly</nobr></div>
+<div style="position:absolute;top:747;left:73"><nobr>changing its configuration in real-time to meet demand without</nobr></div>
+<div style="position:absolute;top:762;left:73"><nobr>sacrificing consistency.</nobr></div>
+<div style="position:absolute;top:777;left:88"><nobr>Index Terms—hierarchical consensus, geographic replication,</nobr></div>
+<div style="position:absolute;top:792;left:73"><nobr>delegated voting, strong consistency</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:823;left:203"><nobr>I. I<font style="font-size:9px">NTRODUCTION</font></nobr></div>
+<div style="position:absolute;top:845;left:88"><nobr>Geographically distributed data systems now commonly</nobr></div>
+<div style="position:absolute;top:863;left:73"><nobr>span continents and oceans. These systems leverage data</nobr></div>
+<div style="position:absolute;top:881;left:73"><nobr>centers newly available around the globe, increasing local per-</nobr></div>
+<div style="position:absolute;top:899;left:73"><nobr>formance by minimizing network distance between users and</nobr></div>
+<div style="position:absolute;top:917;left:73"><nobr>replicas, and offering data recovery in the face of catastrophes</nobr></div>
+<div style="position:absolute;top:935;left:73"><nobr>such as floods or earthquakes. Specialized, high-availability</nobr></div>
+<div style="position:absolute;top:953;left:73"><nobr>data systems [3], [4], [16] have maximized throughput across</nobr></div>
+<div style="position:absolute;top:971;left:73"><nobr>the wide area, driving interest in geo-replicated systems and</nobr></div>
+<div style="position:absolute;top:989;left:73"><nobr>making truly international applications increasingly feasible.</nobr></div>
+<div style="position:absolute;top:1007;left:73"><nobr>To generalize geographically distributed systems, managed</nobr></div>
+<div style="position:absolute;top:1024;left:73"><nobr>replicated data services [1], [10], [30] that can provide strong</nobr></div>
+<div style="position:absolute;top:1042;left:73"><nobr>consistency semantics have risen to prominence. However, the</nobr></div>
+<div style="position:absolute;top:1060;left:73"><nobr>solutions introduced by these new systems and services require</nobr></div>
+<div style="position:absolute;top:1078;left:73"><nobr>specialized hardware and engineering involving multiple inde-</nobr></div>
+<div style="position:absolute;top:1096;left:73"><nobr>pendent subsystems with different failure modes, which, while</nobr></div>
+<div style="position:absolute;top:1114;left:73"><nobr>providing strong consistency to application developers, do so</nobr></div>
+<div style="position:absolute;top:1132;left:73"><nobr>by hiding both replication and infrastructure complexity.</nobr></div>
+<div style="position:absolute;top:1150;left:88"><nobr>Unfortunately, this complexity is increasingly necessary</nobr></div>
+<div style="position:absolute;top:1168;left:73"><nobr>for modern application development. Traditional monolithic</nobr></div>
+<div style="position:absolute;top:1186;left:73"><nobr>applications are being replaced by microservice architectures</nobr></div>
+<div style="position:absolute;top:1204;left:73"><nobr>and cloud-native service meshes [17] that make infrastructure</nobr></div>
+<div style="position:absolute;top:1222;left:73"><nobr>directly visible to applications. Developers in turn leverage</nobr></div>
+<div style="position:absolute;top:1240;left:73"><nobr>this visibility to scale applications, for instance using service</nobr></div>
+<div style="position:absolute;top:433;left:468"><nobr>meshes to maintain and optimize service-specific communica-</nobr></div>
+<div style="position:absolute;top:450;left:468"><nobr>tion, minimize downtime, localize data to users, and improve</nobr></div>
+<div style="position:absolute;top:468;left:468"><nobr>system flexibility. This visibility is also critical to meeting</nobr></div>
+<div style="position:absolute;top:486;left:468"><nobr>the demands of increasing privacy regulations, which require</nobr></div>
+<div style="position:absolute;top:504;left:468"><nobr>applications developers to finely control data placement based</nobr></div>
+<div style="position:absolute;top:522;left:468"><nobr>upon differing legal obligations of the locales of users [27].</nobr></div>
+<div style="position:absolute;top:540;left:468"><nobr>Thus, while managed data services provide strong consistency,</nobr></div>
+<div style="position:absolute;top:558;left:468"><nobr>their rigidity and opaqueness are not flexible enough for</nobr></div>
+<div style="position:absolute;top:576;left:468"><nobr>developers who require strong consistency at a higher level</nobr></div>
+<div style="position:absolute;top:594;left:468"><nobr>of the application stack.</nobr></div>
+<div style="position:absolute;top:612;left:483"><nobr>This paper presents a new protocol, hierarchical consensus,</nobr></div>
+<div style="position:absolute;top:630;left:468"><nobr>motivated by the need for a simpler and more general-purpose</nobr></div>
+<div style="position:absolute;top:648;left:468"><nobr>approach to building large, geographically replicated systems.</nobr></div>
+<div style="position:absolute;top:666;left:468"><nobr>The engineering-based solutions of managed geo-distributed</nobr></div>
+<div style="position:absolute;top:684;left:468"><nobr>data services rely on multiple, independent microservices</nobr></div>
+<div style="position:absolute;top:702;left:468"><nobr>and quorums together with expensive data-center hardware</nobr></div>
+<div style="position:absolute;top:719;left:468"><nobr>to synchronize time, allocate locks, manage transactions, and</nobr></div>
+<div style="position:absolute;top:737;left:468"><nobr>recover from failure. We instead propose a single, system-wide</nobr></div>
+<div style="position:absolute;top:755;left:468"><nobr>consensus protocol that coordinates both replica placement</nobr></div>
+<div style="position:absolute;top:773;left:468"><nobr>and data accesses. By ensuring that all coordination occurs</nobr></div>
+<div style="position:absolute;top:791;left:468"><nobr>through a single consensus activity rather than a fleet of</nobr></div>
+<div style="position:absolute;top:809;left:468"><nobr>small, independent quorums, it is easier to reason about the</nobr></div>
+<div style="position:absolute;top:827;left:468"><nobr>consistency of the system even in a network environment prone</nobr></div>
+<div style="position:absolute;top:845;left:468"><nobr>to correlated failures, partitions, and variable latency. This</nobr></div>
+<div style="position:absolute;top:863;left:468"><nobr>single source of coordination then frees the system to adapt</nobr></div>
+<div style="position:absolute;top:881;left:468"><nobr>to changes in access patterns, configure to maximize through-</nobr></div>
+<div style="position:absolute;top:899;left:468"><nobr>put, specify data placement rules, and ensure straightforward</nobr></div>
+<div style="position:absolute;top:917;left:468"><nobr>system maintenance.</nobr></div>
+<div style="position:absolute;top:935;left:483"><nobr>In order to achieve this, a new consensus protocol that can</nobr></div>
+<div style="position:absolute;top:953;left:468"><nobr>scale beyond a handful of replicas is required. Distributed</nobr></div>
+<div style="position:absolute;top:971;left:468"><nobr>consensus, canonically represented by Paxos [19] and its</nobr></div>
+<div style="position:absolute;top:988;left:468"><nobr>performance optimizing variants [6], [8], [20], [21], primarily</nobr></div>
+<div style="position:absolute;top:1006;left:468"><nobr>considers safety in the case of one or two fail-stop node</nobr></div>
+<div style="position:absolute;top:1024;left:468"><nobr>failures. Recent research has explored the problem of geo-</nobr></div>
+<div style="position:absolute;top:1042;left:468"><nobr>distributed consensus [24], [25], but primarily considers the</nobr></div>
+<div style="position:absolute;top:1060;left:468"><nobr>problem of high-latency links. However, geo-replication im-</nobr></div>
+<div style="position:absolute;top:1078;left:468"><nobr>plies scale. Services running around the globe require dozens</nobr></div>
+<div style="position:absolute;top:1096;left:468"><nobr>if not hundreds of replicas and introduce new failure modes</nobr></div>
+<div style="position:absolute;top:1114;left:468"><nobr>such as network partitions, where sections of the system</nobr></div>
+<div style="position:absolute;top:1132;left:468"><nobr>operate independently without fail-stop failure, and highly</nobr></div>
+<div style="position:absolute;top:1150;left:468"><nobr>variable latency that inhibit quorum progress. To scale systems</nobr></div>
+<div style="position:absolute;top:1168;left:468"><nobr>beyond a handful of replicas, current systems [10], [12], [18],</nobr></div>
+<div style="position:absolute;top:1186;left:468"><nobr>[28] use Paxos as a component, instantiated across multiple</nobr></div>
+<div style="position:absolute;top:1204;left:468"><nobr>transactions, shards, or tablets to manage small subsystems</nobr></div>
+<div style="position:absolute;top:1222;left:468"><nobr>independently, making it difficult to reason about consistency.</nobr></div>
+<div style="position:absolute;top:1240;left:483"><nobr>Hierarchical consensus introduces a novel approach to scale</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:1363;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="2"><b>Page 2</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:1831;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:1441;left:73"><nobr>consensus beyond a handful of nodes, wherein the consensus</nobr></div>
+<div style="position:absolute;top:1459;left:73"><nobr>problem is effectively decomposed into process units. This</nobr></div>
+<div style="position:absolute;top:1477;left:73"><nobr>is achieved with a multi-group coordination protocol that</nobr></div>
+<div style="position:absolute;top:1495;left:73"><nobr>configures and mediates subquorums through a root quorum.</nobr></div>
+<div style="position:absolute;top:1513;left:73"><nobr>The root quorum guarantees correctness by pivoting the system</nobr></div>
+<div style="position:absolute;top:1531;left:73"><nobr>through reconfigurations that place replicas into subquorums,</nobr></div>
+<div style="position:absolute;top:1549;left:73"><nobr>mapping them to partitions of the object namespace. Each</nobr></div>
+<div style="position:absolute;top:1567;left:73"><nobr>subquorum serializes accesses to its mapped objects using</nobr></div>
+<div style="position:absolute;top:1585;left:73"><nobr>provenly safe algorithms, placed to maximize throughput or</nobr></div>
+<div style="position:absolute;top:1603;left:73"><nobr>durability. To ensure that all system-wide consensus decisions</nobr></div>
+<div style="position:absolute;top:1621;left:73"><nobr>are totally ordered with respect to changes in reconfiguration,</nobr></div>
+<div style="position:absolute;top:1638;left:73"><nobr>all subquorums intersect the root quorum in a hierarchy of</nobr></div>
+<div style="position:absolute;top:1656;left:73"><nobr>quorums.</nobr></div>
+<div style="position:absolute;top:1675;left:88"><nobr>The root quorum is composed of all replicas in the system.</nobr></div>
+<div style="position:absolute;top:1692;left:73"><nobr>Though decisions made by the root quorum are rare with</nobr></div>
+<div style="position:absolute;top:1710;left:73"><nobr>respect to data accesses, we introduce delegated voting to</nobr></div>
+<div style="position:absolute;top:1728;left:73"><nobr>optimize quorum decisions at the root. Much of the system’s</nobr></div>
+<div style="position:absolute;top:1746;left:73"><nobr>complexity comes from handshaking between the root quorum</nobr></div>
+<div style="position:absolute;top:1764;left:73"><nobr>and subquorums during reconfiguration. These handshakes are</nobr></div>
+<div style="position:absolute;top:1782;left:73"><nobr>made easier and far more efficient by using fuzzy transitions,</nobr></div>
+<div style="position:absolute;top:1800;left:73"><nobr>which allow individual subquorums to move through reconfig-</nobr></div>
+<div style="position:absolute;top:1818;left:73"><nobr>uration at their own pace without impeding progress. Finally,</nobr></div>
+<div style="position:absolute;top:1836;left:73"><nobr>subquorum consensus can be optimized for policy-driven data</nobr></div>
+<div style="position:absolute;top:1854;left:73"><nobr>placement, allowing objects that require more throughput to</nobr></div>
+<div style="position:absolute;top:1872;left:73"><nobr>use leader-oriented consensus whereas objects that require</nobr></div>
+<div style="position:absolute;top:1890;left:73"><nobr>stronger durability can be replicated across data centers using</nobr></div>
+<div style="position:absolute;top:1908;left:73"><nobr>optimistic fast-path consensus.</nobr></div>
+<div style="position:absolute;top:1926;left:88"><nobr>We validate our approach by implementing hierarchical con-</nobr></div>
+<div style="position:absolute;top:1944;left:73"><nobr>sensus in Alia, a linearizable object store explicitly intended</nobr></div>
+<div style="position:absolute;top:1962;left:73"><nobr>to run with many replicas, geo-replicated across heteroge-</nobr></div>
+<div style="position:absolute;top:1980;left:73"><nobr>nous networks and devices. The resulting system is local, in</nobr></div>
+<div style="position:absolute;top:1998;left:73"><nobr>that replicas serving clients can be located near them. The</nobr></div>
+<div style="position:absolute;top:2015;left:73"><nobr>system is fast because individual operations are served by</nobr></div>
+<div style="position:absolute;top:2033;left:73"><nobr>a small group of replicas regardless of the size of the total</nobr></div>
+<div style="position:absolute;top:2051;left:73"><nobr>system. The system is nimble in that it it can dynamically</nobr></div>
+<div style="position:absolute;top:2069;left:73"><nobr>reconfigure the number, membership, and responsibilities of</nobr></div>
+<div style="position:absolute;top:2087;left:73"><nobr>the subquorums in response to failures, phase changes in the</nobr></div>
+<div style="position:absolute;top:2105;left:73"><nobr>driving applications or policy requirements for data placement</nobr></div>
+<div style="position:absolute;top:2123;left:73"><nobr>and durability. Finally, the system is consistent, supporting</nobr></div>
+<div style="position:absolute;top:2141;left:73"><nobr>the strongest form of per-object consistency without relying</nobr></div>
+<div style="position:absolute;top:2159;left:73"><nobr>on special-purpose hardware. We demonstrate its advantages</nobr></div>
+<div style="position:absolute;top:2177;left:73"><nobr>through an implementation scaling to hundreds of replicas</nobr></div>
+<div style="position:absolute;top:2195;left:73"><nobr>across more than a dozen availability zones around the world</nobr></div>
+<div style="position:absolute;top:2213;left:73"><nobr>using Amazon EC2.</nobr></div>
+<div style="position:absolute;top:2242;left:204"><nobr>II. B<font style="font-size:9px">ACKGROUND</font></nobr></div>
+<div style="position:absolute;top:2266;left:88"><nobr>Distributed consensus algorithms ensure that multiple repli-</nobr></div>
+<div style="position:absolute;top:2284;left:73"><nobr>cas maintain an identical state by applying commands in the</nobr></div>
+<div style="position:absolute;top:2302;left:73"><nobr>same order, ensuring a consistent, externalizable view of the</nobr></div>
+<div style="position:absolute;top:2320;left:73"><nobr>system when any replica is queried. Most of these algorithms</nobr></div>
+<div style="position:absolute;top:2338;left:73"><nobr>are based on Paxos [19], which ensures that a distributed log of</nobr></div>
+<div style="position:absolute;top:2356;left:73"><nobr>ordered commands is maintained even if f replicas fail-stop.</nobr></div>
+<div style="position:absolute;top:2374;left:73"><nobr>This is achieved with quorums of 2f +1 replicas that write an</nobr></div>
+<div style="position:absolute;top:2392;left:73"><nobr>entry into the log using a 2 phase balloting process: PREPARE</nobr></div>
+<div style="position:absolute;top:2410;left:73"><nobr>and ACCEPT. The PREPARE phase is designed to nominate</nobr></div>
+<div style="position:absolute;top:2428;left:73"><nobr>an open slot in the log at position i to place the command and</nobr></div>
+<div style="position:absolute;top:1441;left:468"><nobr>to detect any conflicting commands that may already exist in</nobr></div>
+<div style="position:absolute;top:1459;left:468"><nobr>that slot; the ACCEPT phase commits the command in that</nobr></div>
+<div style="position:absolute;top:1477;left:468"><nobr>slot. In both phases a majority of replicas must respond for</nobr></div>
+<div style="position:absolute;top:1495;left:468"><nobr>progress to be made.</nobr></div>
+<div style="position:absolute;top:1514;left:483"><nobr>There are two primary optimizations to the basic consensus</nobr></div>
+<div style="position:absolute;top:1532;left:468"><nobr>algorithm: leader election and fast path execution. Leader-</nobr></div>
+<div style="position:absolute;top:1550;left:468"><nobr>oriented consensus protocols elide the PREPARE phase by</nobr></div>
+<div style="position:absolute;top:1568;left:468"><nobr>specifically selecting a replica that has sole responsibility of</nobr></div>
+<div style="position:absolute;top:1586;left:468"><nobr>slot nomination. Some variants such as Raft [26] elect a leader</nobr></div>
+<div style="position:absolute;top:1604;left:468"><nobr>that can nominate all slots for a time-limited duration, where</nobr></div>
+<div style="position:absolute;top:1622;left:468"><nobr>as others like Mencius [24] use a round-robin approach to as-</nobr></div>
+<div style="position:absolute;top:1640;left:468"><nobr>signing leadership. Fast path execution such as Fast Paxos [21]</nobr></div>
+<div style="position:absolute;top:1658;left:468"><nobr>and EPaxos [25] optimistically push through commits on the</nobr></div>
+<div style="position:absolute;top:1676;left:468"><nobr>PREPARE phase and use conflict detection mechanisms to</nobr></div>
+<div style="position:absolute;top:1694;left:468"><nobr>determine if a slow path ACCEPT is required. Both of these</nobr></div>
+<div style="position:absolute;top:1712;left:468"><nobr>optimizations are designed to reduce communication rounds</nobr></div>
+<div style="position:absolute;top:1729;left:468"><nobr>in the common case, while still maintaining safety when f</nobr></div>
+<div style="position:absolute;top:1747;left:468"><nobr>replicas fail, however none of these optimizations describe</nobr></div>
+<div style="position:absolute;top:1765;left:468"><nobr>how to scale consensus beyond 2f + 1 replicas.</nobr></div>
+<div style="position:absolute;top:1785;left:483"><nobr>Vertical Paxos [22], [23] describes how to scale consensus</nobr></div>
+<div style="position:absolute;top:1802;left:468"><nobr>groups by allowing an auxiliary master quorum to execute</nobr></div>
+<div style="position:absolute;top:1820;left:468"><nobr>safe reconfiguration directives in the middle of consensus</nobr></div>
+<div style="position:absolute;top:1838;left:468"><nobr>decisions. The replicated state machine process is extended</nobr></div>
+<div style="position:absolute;top:1856;left:468"><nobr>from a single log to a grid where commands are placed</nobr></div>
+<div style="position:absolute;top:1874;left:468"><nobr>both horizontally as a sequence of consensus instances (con-</nobr></div>
+<div style="position:absolute;top:1892;left:468"><nobr>figurations) and vertically as increasing ballot numbers (log</nobr></div>
+<div style="position:absolute;top:1910;left:468"><nobr>indices). Because consensus instances are disjoint inside of</nobr></div>
+<div style="position:absolute;top:1928;left:468"><nobr>a single configuration, Vertical Paxos creates a total ordering</nobr></div>
+<div style="position:absolute;top:1946;left:468"><nobr>of commands that is guaranteed to bring the system to an</nobr></div>
+<div style="position:absolute;top:1964;left:468"><nobr>identical state no matter the point in execution. By allowing</nobr></div>
+<div style="position:absolute;top:1982;left:468"><nobr>multiple, active consensus instances, Vertical Paxos decouples</nobr></div>
+<div style="position:absolute;top:2000;left:468"><nobr>command execution and state transfer from reconfiguration,</nobr></div>
+<div style="position:absolute;top:2018;left:468"><nobr>allowing the system to arbitrarily scale. While Vertical Paxos</nobr></div>
+<div style="position:absolute;top:2036;left:468"><nobr>considers scaling consensus and other algorithms such as</nobr></div>
+<div style="position:absolute;top:2054;left:468"><nobr>EPaxos and Mencius consider geo-distributed consensus, no</nobr></div>
+<div style="position:absolute;top:2071;left:468"><nobr>consensus protocol tackles scaling consensus to hundreds of</nobr></div>
+<div style="position:absolute;top:2089;left:468"><nobr>nodes across the wide area.</nobr></div>
+<div style="position:absolute;top:2128;left:551"><nobr>III. H<font style="font-size:9px">IERARCHICAL </font>C<font style="font-size:9px">ONSENSUS</font></nobr></div>
+<div style="position:absolute;top:2159;left:483"><nobr>Hierarchical consensus and Alia are an extension and im-</nobr></div>
+<div style="position:absolute;top:2176;left:468"><nobr>plementation of Vertical Paxos that are specifically designed</nobr></div>
+<div style="position:absolute;top:2194;left:468"><nobr>for scalable, geo-distributed consensus. Like Vertical Paxos,</nobr></div>
+<div style="position:absolute;top:2212;left:468"><nobr>hierarchical consensus (HC) organizes replicas into two tiers</nobr></div>
+<div style="position:absolute;top:2230;left:468"><nobr>of quorums, each responsible for fundamentally different</nobr></div>
+<div style="position:absolute;top:2248;left:468"><nobr>decisions, as shown in Figure 1. The lower tier consists</nobr></div>
+<div style="position:absolute;top:2266;left:468"><nobr>of multiple independent subquorums, each committing data</nobr></div>
+<div style="position:absolute;top:2284;left:468"><nobr>access operations to local shared logs. The upper, root quorum,</nobr></div>
+<div style="position:absolute;top:2302;left:468"><nobr>consists of subquorum peers, usually their leaders, delegated to</nobr></div>
+<div style="position:absolute;top:2320;left:468"><nobr>represent the subquorum and hot spares in root elections and</nobr></div>
+<div style="position:absolute;top:2338;left:468"><nobr>reconfiguration commits. HC’s main function is to export a</nobr></div>
+<div style="position:absolute;top:2356;left:468"><nobr>linearizable abstraction of shared accesses to some underlying</nobr></div>
+<div style="position:absolute;top:2374;left:468"><nobr>substrate, such as a distributed object store or file system. We</nobr></div>
+<div style="position:absolute;top:2392;left:468"><nobr>assume that nodes hosting object stores, applications, and HC</nobr></div>
+<div style="position:absolute;top:2410;left:468"><nobr>are frequently co-located across the wide area and introduce</nobr></div>
+<div style="position:absolute;top:2428;left:468"><nobr>our object store implementation, Alia, in Section V.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:2551;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="3"><b>Page 3</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:3019;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:2690;left:217"><nobr><b>Root Quorum</b></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:2706;left:128"><nobr><b>A</b></nobr></div>
+<div style="position:absolute;top:2747;left:165"><nobr><b>B</b></nobr></div>
+<div style="position:absolute;top:2747;left:91"><nobr><b>E</b></nobr></div>
+<div style="position:absolute;top:2781;left:153"><nobr><b>C</b></nobr></div>
+<div style="position:absolute;top:2781;left:104"><nobr><b>D</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:2751;left:123"><nobr><b>Q</b></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:7px;font-family:Times">
+<div style="position:absolute;top:2760;left:135"><nobr><b>1</b></nobr></div>
+</span></font>
+<font size="2" face="Times" color="#000000"><span style="font-size:8px;font-family:Times;color:#000000">
+<div style="position:absolute;top:2649;left:255"><nobr><b>Z</b></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:2740;left:255"><nobr><b>F</b></nobr></div>
+<div style="position:absolute;top:2781;left:292"><nobr><b>G</b></nobr></div>
+<div style="position:absolute;top:2781;left:219"><nobr><b>J</b></nobr></div>
+<div style="position:absolute;top:2815;left:280"><nobr><b>H</b></nobr></div>
+<div style="position:absolute;top:2815;left:231"><nobr><b>I</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:2785;left:250"><nobr><b>Q</b></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:7px;font-family:Times">
+<div style="position:absolute;top:2794;left:262"><nobr><b>2</b></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:2706;left:384"><nobr><b>K</b></nobr></div>
+<div style="position:absolute;top:2747;left:421"><nobr><b>L</b></nobr></div>
+<div style="position:absolute;top:2747;left:347"><nobr><b>O</b></nobr></div>
+<div style="position:absolute;top:2781;left:408"><nobr><b>M</b></nobr></div>
+<div style="position:absolute;top:2781;left:359"><nobr><b>N</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:2751;left:379"><nobr><b>Q</b></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:7px;font-family:Times">
+<div style="position:absolute;top:2760;left:391"><nobr><b>3</b></nobr></div>
+<div style="position:absolute;top:2647;left:279"><nobr>root leader</nobr></div>
+<div style="position:absolute;top:2859;left:125"><nobr>delegation</nobr></div>
+<div style="position:absolute;top:2859;left:264"><nobr>quorum</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:6px;font-family:Times">
+<div style="position:absolute;top:2836;left:393"><nobr>leader</nobr></div>
+<div style="position:absolute;top:2817;left:393"><nobr>follower</nobr></div>
+<div style="position:absolute;top:2859;left:393"><nobr>hot spare</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:2640;left:388"><nobr>P</nobr></div>
+<div style="position:absolute;top:2661;left:409"><nobr>Q</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:2894;left:73"><nobr>Fig. 1. Hierarchical consensus is an extension of Vertical Paxos wherein</nobr></div>
+<div style="position:absolute;top:2908;left:73"><nobr>the root quorum moves the system through reconfigurations, and intersecting</nobr></div>
+<div style="position:absolute;top:2921;left:73"><nobr>subquorums manage local data accesses.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:2969;left:88"><nobr>The root quorum’s primary responsibility is to manage the</nobr></div>
+<div style="position:absolute;top:2987;left:73"><nobr>configuration of P distinct processes, each of which maintain</nobr></div>
+<div style="position:absolute;top:3005;left:73"><nobr>their own local state and can handle access requests from users</nobr></div>
+<div style="position:absolute;top:3023;left:73"><nobr>to objects represented by a namespace, N. It does this by</nobr></div>
+<div style="position:absolute;top:3041;left:73"><nobr>mapping processes to subquorums and mapping subquorums</nobr></div>
+<div style="position:absolute;top:3059;left:73"><nobr>to partitions of the namespace, allocating all extra processes</nobr></div>
+<div style="position:absolute;top:3076;left:73"><nobr>as hot spares, which stand by to be placed in a subquorum</nobr></div>
+<div style="position:absolute;top:3094;left:73"><nobr>on individual process failure. Each distinct mapping of the</nobr></div>
+<div style="position:absolute;top:3112;left:73"><nobr>namespace to replicas is a single configuration and is repre-</nobr></div>
+<div style="position:absolute;top:3130;left:73"><nobr>sented by an epoch, e, a monotonically increasing index that</nobr></div>
+<div style="position:absolute;top:3148;left:73"><nobr>describes the horizontal position of the Vertical Paxos grid,</nobr></div>
+<div style="position:absolute;top:3166;left:73"><nobr>and is used by the system to guarantee safety. The set of</nobr></div>
+<div style="position:absolute;top:3184;left:73"><nobr>subquorums specified by each epoch is represented by Q<font style="font-size:8px">e </font>such</nobr></div>
+<div style="position:absolute;top:3202;left:73"><nobr>that an individual subquorum is identified as q<font style="font-size:8px">i,e</font>.</nobr></div>
+<div style="position:absolute;top:3220;left:88"><nobr>The root quorum partitions (shards) the namespace across</nobr></div>
+<div style="position:absolute;top:3238;left:73"><nobr>Q<font style="font-size:8px">e </font>by mapping a subset of the namespace across the subquo-</nobr></div>
+<div style="position:absolute;top:3256;left:73"><nobr>rums, n<font style="font-size:8px">i </font>↦→ q<font style="font-size:8px">i,e</font>, ensuring that each shard of the namespace is</nobr></div>
+<div style="position:absolute;top:3274;left:73"><nobr>a disjoint subset such that ∀n<font style="font-size:8px">i </font>∈ N<font style="font-size:8px">e </font>∃!q<font style="font-size:8px">i,e </font>↦→ n<font style="font-size:8px">i</font>. The intent of</nobr></div>
+<div style="position:absolute;top:3292;left:73"><nobr>subquorum localization is ensure that the domain of a client,</nobr></div>
+<div style="position:absolute;top:3310;left:73"><nobr>the portion of the namespace it accesses, is entirely within the</nobr></div>
+<div style="position:absolute;top:3328;left:73"><nobr>scope of a local, or nearby, subquorum. To the extent that this</nobr></div>
+<div style="position:absolute;top:3346;left:73"><nobr>is true across the entire system, each client interacts with only</nobr></div>
+<div style="position:absolute;top:3364;left:73"><nobr>one subquorum, and subquorums do not interact at all during</nobr></div>
+<div style="position:absolute;top:3382;left:73"><nobr>execution of a single epoch. This siloing of client accesses</nobr></div>
+<div style="position:absolute;top:3400;left:73"><nobr>simplifies implementation of strong consistency guarantees</nobr></div>
+<div style="position:absolute;top:3418;left:73"><nobr>and allows better performance at the cost of restricting multi-</nobr></div>
+<div style="position:absolute;top:3436;left:73"><nobr>object transactions. We use agility to attempt to get this, but</nobr></div>
+<div style="position:absolute;top:3454;left:73"><nobr>allow client-side multi-object transactions.</nobr></div>
+<div style="position:absolute;top:3472;left:88"><nobr>The root quorum is a consensus group consisting of dele-</nobr></div>
+<div style="position:absolute;top:3490;left:73"><nobr>gates (usually subquorum leaders) whose primary consensus</nobr></div>
+<div style="position:absolute;top:3508;left:73"><nobr>operation is to commit new epochs. As subquorums transi-</nobr></div>
+<div style="position:absolute;top:3526;left:73"><nobr>tion to new epochs, they handoff their current state to the</nobr></div>
+<div style="position:absolute;top:3544;left:73"><nobr>subquorum (s) newly responsible for managing that portion</nobr></div>
+<div style="position:absolute;top:3562;left:73"><nobr>of the namespace, ensuring that no portion of the namespace</nobr></div>
+<div style="position:absolute;top:3580;left:73"><nobr>can be accessed concurrently in two different epochs. For</nobr></div>
+<div style="position:absolute;top:3598;left:73"><nobr>understandability we describe the HC in leader-oriented terms,</nobr></div>
+<div style="position:absolute;top:3616;left:73"><nobr>though there is no requirement for either the root quorum</nobr></div>
+<div style="position:absolute;top:2629;left:468"><nobr>or the subquorums to implement leader-oriented consensus.</nobr></div>
+<div style="position:absolute;top:2647;left:468"><nobr>Further, we propose that subquorums should be assigned the</nobr></div>
+<div style="position:absolute;top:2665;left:468"><nobr>consensus algorithm that best optimizes for the durability and</nobr></div>
+<div style="position:absolute;top:2683;left:468"><nobr>throughput requirements of the shards they manage. While the</nobr></div>
+<div style="position:absolute;top:2701;left:468"><nobr>root quorum is composed of all replicas in the system, only</nobr></div>
+<div style="position:absolute;top:2719;left:468"><nobr>a subset of replicas actively participates in root quorum deci-</nobr></div>
+<div style="position:absolute;top:2737;left:468"><nobr>sion making, in the common case. Using these mechanisms,</nobr></div>
+<div style="position:absolute;top:2755;left:468"><nobr>hierarchical consensus prioritizes flexibility and transparency,</nobr></div>
+<div style="position:absolute;top:2773;left:468"><nobr>ensuring the system is safe while able to make progress and</nobr></div>
+<div style="position:absolute;top:2791;left:468"><nobr>can be managed easily while scaled to very large consensus</nobr></div>
+<div style="position:absolute;top:2809;left:468"><nobr>groups across continents and oceans.</nobr></div>
+<div style="position:absolute;top:2839;left:468"><nobr>A. Delegated Voting</nobr></div>
+<div style="position:absolute;top:2862;left:483"><nobr>From a logical perspective, the root quorum’s membership</nobr></div>
+<div style="position:absolute;top:2880;left:468"><nobr>is the set of all system replicas, at all times. This ensures that</nobr></div>
+<div style="position:absolute;top:2898;left:468"><nobr>all subquorums intersect with the root quorum such that all</nobr></div>
+<div style="position:absolute;top:2916;left:468"><nobr>commands are totally ordered, and to improve the overall fault</nobr></div>
+<div style="position:absolute;top:2934;left:468"><nobr>tolerance and flexibility of the system, eliminating the root</nobr></div>
+<div style="position:absolute;top:2952;left:468"><nobr>quorum as a potential bottleneck. However, running consensus</nobr></div>
+<div style="position:absolute;top:2970;left:468"><nobr>elections across large systems is inefficient in the best of</nobr></div>
+<div style="position:absolute;top:2987;left:468"><nobr>cases, and prohibitively slow in a geo-replicated environment.</nobr></div>
+<div style="position:absolute;top:3005;left:468"><nobr>Root quorum decision-making is kept tractable by having</nobr></div>
+<div style="position:absolute;top:3023;left:468"><nobr>replicas delegate their votes, usually to their local leaders, for</nobr></div>
+<div style="position:absolute;top:3041;left:468"><nobr>a finite duration. With leader delegation, the root membership</nobr></div>
+<div style="position:absolute;top:3059;left:468"><nobr>effectively consists of the set of subquorum leaders in the</nobr></div>
+<div style="position:absolute;top:3077;left:468"><nobr>ideal case. Because subquorums themselves are geographically</nobr></div>
+<div style="position:absolute;top:3095;left:468"><nobr>distributed and placed to optimize system specific policies, the</nobr></div>
+<div style="position:absolute;top:3113;left:468"><nobr>root quorum represents a simplified snapshot of the overall</nobr></div>
+<div style="position:absolute;top:3131;left:468"><nobr>operation and as the network environment and access patterns</nobr></div>
+<div style="position:absolute;top:3149;left:468"><nobr>change, so too does the root quorum. To simplify the discus-</nobr></div>
+<div style="position:absolute;top:3167;left:468"><nobr>sion of delegated voting, we assume a leader-oriented consen-</nobr></div>
+<div style="position:absolute;top:3185;left:468"><nobr>sus protocol that operates similarly to Raft, using heartbeats</nobr></div>
+<div style="position:absolute;top:3203;left:468"><nobr>and timeouts to detect failure.</nobr></div>
+<div style="position:absolute;top:3221;left:483"><nobr>The root quorum elects a leader for a root term, r and</nobr></div>
+<div style="position:absolute;top:3239;left:468"><nobr>broadcasts this term along with routine heartbeats that keep</nobr></div>
+<div style="position:absolute;top:3257;left:468"><nobr>the leader term alive. Each replica has a delegated term, d, on</nobr></div>
+<div style="position:absolute;top:3275;left:468"><nobr>root heartbeat, if r&gt;d, then the replica sets d = r and marks</nobr></div>
+<div style="position:absolute;top:3293;left:468"><nobr>its vote as no longer delegated. If the replica is not delegated</nobr></div>
+<div style="position:absolute;top:3310;left:468"><nobr>it can issue a delegate request to local replicas for a delegate</nobr></div>
+<div style="position:absolute;top:3328;left:468"><nobr>term, d<font style="font-size:8px">t </font>= d+j where j defines how many root elections the</nobr></div>
+<div style="position:absolute;top:3346;left:468"><nobr>delegation will survive. Usually, j = 1, but can be increased</nobr></div>
+<div style="position:absolute;top:3364;left:468"><nobr>if intermittent failure in the root quorum is expected (to allow</nobr></div>
+<div style="position:absolute;top:3382;left:468"><nobr>the delegates to smoothly transition to new leaders without re-</nobr></div>
+<div style="position:absolute;top:3400;left:468"><nobr>delegation). When a delegate request is received, the replica</nobr></div>
+<div style="position:absolute;top:3418;left:468"><nobr>can delegate iff d<font style="font-size:8px">t </font>&gt; d and marks itself as delegated, otherwise</nobr></div>
+<div style="position:absolute;top:3436;left:468"><nobr>it reports the current term to the delegate candidate. A delegate</nobr></div>
+<div style="position:absolute;top:3454;left:468"><nobr>is any replica that is able to vote in root term r, e.g. any replica</nobr></div>
+<div style="position:absolute;top:3472;left:468"><nobr>whose d&gt;r.</nobr></div>
+<div style="position:absolute;top:3490;left:483"><nobr>During a consensus operation in the root quorum for either</nobr></div>
+<div style="position:absolute;top:3508;left:468"><nobr>a root leader election or an epoch change, the root leader or</nobr></div>
+<div style="position:absolute;top:3526;left:468"><nobr>candidate broadcasts a request to all replicas with its current</nobr></div>
+<div style="position:absolute;top:3544;left:468"><nobr>term. Replicas only reply to the vote if d ≥ r and they have</nobr></div>
+<div style="position:absolute;top:3562;left:468"><nobr>not delegated their vote. We consider it possible, depending</nobr></div>
+<div style="position:absolute;top:3580;left:468"><nobr>on the implementation, that duplicate votes might be received,</nobr></div>
+<div style="position:absolute;top:3598;left:468"><nobr>therefore to ensure safety, the root leader or candidate must</nobr></div>
+<div style="position:absolute;top:3616;left:468"><nobr>account for which replicas have voted, keeping only the votes</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:3739;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="4"><b>Page 4</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:4207;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:3817;left:73"><nobr>for the highest delegated term. This is true even for hot spares,</nobr></div>
+<div style="position:absolute;top:3835;left:73"><nobr>which are not currently in any subquorum. Delegates reply</nobr></div>
+<div style="position:absolute;top:3853;left:73"><nobr>with the unique ids of the replicas they represent so that</nobr></div>
+<div style="position:absolute;top:3871;left:73"><nobr>root consensus decisions are still made using a majority of</nobr></div>
+<div style="position:absolute;top:3889;left:73"><nobr>all system replicas. This is correct because vote requests now</nobr></div>
+<div style="position:absolute;top:3907;left:73"><nobr>reach all replicas, and because replicas whose votes have been</nobr></div>
+<div style="position:absolute;top:3925;left:73"><nobr>delegated merely ignore the request. We argue that it is also</nobr></div>
+<div style="position:absolute;top:3943;left:73"><nobr>efficient, as a commit’s efficiency depends only on receipt of</nobr></div>
+<div style="position:absolute;top:3961;left:73"><nobr>a majority of the votes.</nobr></div>
+<div style="position:absolute;top:3979;left:88"><nobr>Delegation ensures that root quorum membership is always</nobr></div>
+<div style="position:absolute;top:3997;left:73"><nobr>the entire system and remains unchanged over subquorum</nobr></div>
+<div style="position:absolute;top:4014;left:73"><nobr>leader elections and even reconfiguration. Delegation is essen-</nobr></div>
+<div style="position:absolute;top:4032;left:73"><nobr>tially a way to optimistically shortcut contacting every replica</nobr></div>
+<div style="position:absolute;top:4050;left:73"><nobr>for each decision. Large consensus groups are generally slow,</nobr></div>
+<div style="position:absolute;top:4068;left:73"><nobr>not just because of communication latency, but because large</nobr></div>
+<div style="position:absolute;top:4086;left:73"><nobr>groups in a heterogeneous setting are more likely to include</nobr></div>
+<div style="position:absolute;top:4104;left:73"><nobr>replicas on very slow hosts or networks. In the usual case for</nobr></div>
+<div style="position:absolute;top:4122;left:73"><nobr>our protocol, the root leader still only needs to wait for votes</nobr></div>
+<div style="position:absolute;top:4140;left:73"><nobr>from the subquorum leaders. Leaders are generally those that</nobr></div>
+<div style="position:absolute;top:4158;left:73"><nobr>respond more quickly to timeouts, so the speed of root quorum</nobr></div>
+<div style="position:absolute;top:4176;left:73"><nobr>operations is unchanged. Note that because the root term only</nobr></div>
+<div style="position:absolute;top:4194;left:73"><nobr>increments when the root leader changes, epoch decisions are</nobr></div>
+<div style="position:absolute;top:4212;left:73"><nobr>the commonly delegated votes.</nobr></div>
+<div style="position:absolute;top:4230;left:88"><nobr>Delegation can also be seen as a PRE-PREPARE phase be-</nobr></div>
+<div style="position:absolute;top:4248;left:73"><nobr>fore the root leader election (e.g. the root quorum PREPARE).</nobr></div>
+<div style="position:absolute;top:4266;left:73"><nobr>If a root election timeout expires, only a delegate can</nobr></div>
+<div style="position:absolute;top:4283;left:73"><nobr>become a root candidate (including replicas that vote only</nobr></div>
+<div style="position:absolute;top:4301;left:73"><nobr>for themselves). This means that at least one root election</nobr></div>
+<div style="position:absolute;top:4319;left:73"><nobr>will occur with delegation, prompting re-delegation requests</nobr></div>
+<div style="position:absolute;top:4337;left:73"><nobr>that are generally far in advance of new elections. In normal</nobr></div>
+<div style="position:absolute;top:4355;left:73"><nobr>operation, with limited failure, all root decisions are delegated.</nobr></div>
+<div style="position:absolute;top:4373;left:73"><nobr>However, if the delegates representing a majority of the system</nobr></div>
+<div style="position:absolute;top:4391;left:73"><nobr>fail, so long as there is at least one live delegate, the root</nobr></div>
+<div style="position:absolute;top:4409;left:73"><nobr>term will increase until all delegations are busted, causing</nobr></div>
+<div style="position:absolute;top:4427;left:73"><nobr>all replicas to re-delegate their votes to a live replica, or</nobr></div>
+<div style="position:absolute;top:4445;left:73"><nobr>to simply vote for themselves. There is one critical edge</nobr></div>
+<div style="position:absolute;top:4463;left:73"><nobr>case, all delegates failing simultaneously, which we discuss</nobr></div>
+<div style="position:absolute;top:4481;left:73"><nobr>in Section IV-B.</nobr></div>
+<div style="position:absolute;top:4499;left:88"><nobr>The optimal root quorum configuration is to have all</nobr></div>
+<div style="position:absolute;top:4517;left:73"><nobr>subquorum leaders as delegates with hot spares delegated</nobr></div>
+<div style="position:absolute;top:4535;left:73"><nobr>evenly to local delegates. This configuration balances the fault</nobr></div>
+<div style="position:absolute;top:4552;left:73"><nobr>tolerance of the root quorum with the throughput of decision</nobr></div>
+<div style="position:absolute;top:4570;left:73"><nobr>making, however this configuration is not guaranteed by the</nobr></div>
+<div style="position:absolute;top:4588;left:73"><nobr>protocol described above. Our approach employs heuristic</nobr></div>
+<div style="position:absolute;top:4606;left:73"><nobr>mechanisms such as network distance or maximum delegation</nobr></div>
+<div style="position:absolute;top:4624;left:73"><nobr>to ensure the efficiency of delegated voting and to limit</nobr></div>
+<div style="position:absolute;top:4642;left:73"><nobr>delegation inside of single regions only. The root quorum</nobr></div>
+<div style="position:absolute;top:4660;left:73"><nobr>leader can simplify this process by identifying replicas that</nobr></div>
+<div style="position:absolute;top:4678;left:73"><nobr>have previously been highly available members of the root</nobr></div>
+<div style="position:absolute;top:4696;left:73"><nobr>quorum. If the root quorum leader identifies a poor delegation</nobr></div>
+<div style="position:absolute;top:4714;left:73"><nobr>state, it simply initiates a root leader election for itself,</nobr></div>
+<div style="position:absolute;top:4732;left:73"><nobr>incrementing r, and causing replicas to re-delegate after the</nobr></div>
+<div style="position:absolute;top:4750;left:73"><nobr>election. On epoch change, the root leader can hint to the</nobr></div>
+<div style="position:absolute;top:4768;left:73"><nobr>reconfigured subquorums the best replicas to delegate to if</nobr></div>
+<div style="position:absolute;top:4786;left:73"><nobr>they are not already delegated for the epoch. If no hints are</nobr></div>
+<div style="position:absolute;top:4804;left:73"><nobr>provided, then replica followers generally delegate their vote</nobr></div>
+<div style="position:absolute;top:3817;left:468"><nobr>to the term 1 leader and hot spares to the closest subquorum</nobr></div>
+<div style="position:absolute;top:3835;left:468"><nobr>leader. Generally, the reconfigurations that occur during epoch</nobr></div>
+<div style="position:absolute;top:3853;left:468"><nobr>changes allow the root quorum to move the system to an</nobr></div>
+<div style="position:absolute;top:3871;left:468"><nobr>optimal state given current network conditions.</nobr></div>
+<div style="position:absolute;top:3899;left:468"><nobr>B. Reconfiguration</nobr></div>
+<div style="position:absolute;top:3922;left:483"><nobr>Every epoch represents a new configuration of the system as</nobr></div>
+<div style="position:absolute;top:3940;left:468"><nobr>designated by the root leader. Efficient reconfiguration ensures</nobr></div>
+<div style="position:absolute;top:3958;left:468"><nobr>that the system is both dynamic, responding both to failures</nobr></div>
+<div style="position:absolute;top:3976;left:468"><nobr>and changing usage patterns, and minimizes coordination by</nobr></div>
+<div style="position:absolute;top:3994;left:468"><nobr>colocating related objects. An epoch change is initiated by the</nobr></div>
+<div style="position:absolute;top:4011;left:468"><nobr>root leader in response to one of several events, including:</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:4035;left:483"><nobr>• <font style="font-size:12px">notification of failed replicas</font></nobr></div>
+<div style="position:absolute;top:4053;left:483"><nobr>• <font style="font-size:12px">a namespace repartition request to optimize data accesses</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:4068;left:498"><nobr>or minimize conflicts</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:4089;left:483"><nobr>• <font style="font-size:12px">changing network conditions that suggest re-assignment</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:4104;left:498"><nobr>to improve subquorum throughput</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:4124;left:483"><nobr>• <font style="font-size:12px">application-initiated reconfigurations to localize data, in-</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:4140;left:498"><nobr>crease durability, or enforce policies</nobr></div>
+<div style="position:absolute;top:4161;left:483"><nobr>The root leader transitions to a new epoch through the</nobr></div>
+<div style="position:absolute;top:4179;left:468"><nobr>normal commit phase in the root quorum. The command pro-</nobr></div>
+<div style="position:absolute;top:4197;left:468"><nobr>posed by the leader is an enumeration of the new subquorum</nobr></div>
+<div style="position:absolute;top:4215;left:468"><nobr>partition, namespace partition, and assignment of namespace</nobr></div>
+<div style="position:absolute;top:4233;left:468"><nobr>portions to specific subquorums. The announcement may also</nobr></div>
+<div style="position:absolute;top:4251;left:468"><nobr>include initial leaders for each subquorum, with the usual</nobr></div>
+<div style="position:absolute;top:4269;left:468"><nobr>rules for leader election applying otherwise, or if the assigned</nobr></div>
+<div style="position:absolute;top:4286;left:468"><nobr>leader is unresponsive. Upon commit, the operation serves as</nobr></div>
+<div style="position:absolute;top:4304;left:468"><nobr>an announcement to subquorum leaders. Subquorum leaders</nobr></div>
+<div style="position:absolute;top:4322;left:468"><nobr>repeat the announcement locally, disseminating full knowledge</nobr></div>
+<div style="position:absolute;top:4340;left:468"><nobr>of the new system configuration, and eventually transition to</nobr></div>
+<div style="position:absolute;top:4358;left:468"><nobr>the new epoch by committing an epoch-change operation</nobr></div>
+<div style="position:absolute;top:4376;left:468"><nobr>locally.</nobr></div>
+<div style="position:absolute;top:4394;left:483"><nobr>The epoch change is lightweight for subquorums that are</nobr></div>
+<div style="position:absolute;top:4412;left:468"><nobr>not directly affected by the overarching reconfiguration. If a</nobr></div>
+<div style="position:absolute;top:4430;left:468"><nobr>subquorum is being changed or dissolved, however, the epoch-</nobr></div>
+<div style="position:absolute;top:4448;left:468"><nobr>change commitment becomes a tombstone written to the logs</nobr></div>
+<div style="position:absolute;top:4466;left:468"><nobr>of all local replicas. No further operations will be committed</nobr></div>
+<div style="position:absolute;top:4484;left:468"><nobr>by that version of the subgroup, and the local shared log</nobr></div>
+<div style="position:absolute;top:4502;left:468"><nobr>is archived and then truncated. Truncation is necessary to</nobr></div>
+<div style="position:absolute;top:4520;left:468"><nobr>guarantee a consistent view of the log within a subquorum,</nobr></div>
+<div style="position:absolute;top:4538;left:468"><nobr>as peers may have been part of different subquorums, and</nobr></div>
+<div style="position:absolute;top:4555;left:468"><nobr>thus have different logs, during the last epoch. Replicas then</nobr></div>
+<div style="position:absolute;top:4573;left:468"><nobr>begin participating in their new subquorum instantiation. In</nobr></div>
+<div style="position:absolute;top:4591;left:468"><nobr>the common case where a subquorum’s membership remains</nobr></div>
+<div style="position:absolute;top:4609;left:468"><nobr>unchanged across the transition, an epoch-change may</nobr></div>
+<div style="position:absolute;top:4627;left:468"><nobr>still require additional mechanism because of changes in</nobr></div>
+<div style="position:absolute;top:4645;left:468"><nobr>namespace responsibility.</nobr></div>
+<div style="position:absolute;top:4673;left:468"><nobr>C. Data Placement</nobr></div>
+<div style="position:absolute;top:4696;left:483"><nobr>Reconfiguration by the root quorum not only allows the</nobr></div>
+<div style="position:absolute;top:4714;left:468"><nobr>system to transparently scale consensus operations, but also</nobr></div>
+<div style="position:absolute;top:4732;left:468"><nobr>provides applications the ability to directly specify how and</nobr></div>
+<div style="position:absolute;top:4750;left:468"><nobr>where consensus operations should be placed. Although epoch</nobr></div>
+<div style="position:absolute;top:4768;left:468"><nobr>changes are relatively heavy weight, the design of HC allows</nobr></div>
+<div style="position:absolute;top:4786;left:468"><nobr>them to be routine. Most systems are optimized for only one</nobr></div>
+<div style="position:absolute;top:4804;left:468"><nobr>type of data placement, however real-world applications vary</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:4927;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="5"><b>Page 5</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:5395;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:5152;left:86"><nobr><i>q</i></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:7px;font-family:Times">
+<div style="position:absolute;top:5160;left:93"><nobr><i>k</i></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:5087;left:86"><nobr><i>q</i></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:7px;font-family:Times">
+<div style="position:absolute;top:5095;left:93"><nobr><i>j</i></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:5023;left:86"><nobr><i>q</i></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:7px;font-family:Times">
+<div style="position:absolute;top:5031;left:93"><nobr><i>i</i></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:5079;left:101"><nobr>{c,d}</nobr></div>
+<div style="position:absolute;top:5015;left:101"><nobr>{a,b}</nobr></div>
+<div style="position:absolute;top:5143;left:102"><nobr>{e,f}</nobr></div>
+<div style="position:absolute;top:5145;left:337"><nobr>{d,e}</nobr></div>
+<div style="position:absolute;top:5080;left:337"><nobr>{c,b,f}</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:6px;font-family:Times">
+<div style="position:absolute;top:5066;left:161"><nobr>req(b)</nobr></div>
+<div style="position:absolute;top:5039;left:205"><nobr>grant(b)</nobr></div>
+<div style="position:absolute;top:5104;left:177"><nobr>req(f)</nobr></div>
+<div style="position:absolute;top:5135;left:233"><nobr>grant(f)</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:5015;left:337"><nobr>{a}</nobr></div>
+<div style="position:absolute;top:5143;left:206"><nobr>...</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:6px;font-family:Times">
+<div style="position:absolute;top:5166;left:115"><nobr>epoch</nobr></div>
+<div style="position:absolute;top:5176;left:112"><nobr>change</nobr></div>
+<div style="position:absolute;top:5132;left:276"><nobr>req(d)</nobr></div>
+<div style="position:absolute;top:5101;left:312"><nobr>grant(d)</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:5224;left:73"><nobr>Fig. 2. Fuzzy transitions allow the system to safely make progress unimpeded</nobr></div>
+<div style="position:absolute;top:5238;left:73"><nobr>by leadership changes in either the root quorum or subquorum.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:5306;left:73"><nobr>in their needs for availability and durability, often on a per-</nobr></div>
+<div style="position:absolute;top:5324;left:73"><nobr>object basis. Applications may also observe markedly different</nobr></div>
+<div style="position:absolute;top:5342;left:73"><nobr>access patterns that change during the course of operation,</nobr></div>
+<div style="position:absolute;top:5359;left:73"><nobr>including:</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:5400;left:88"><nobr>• <font style="font-size:12px">single ownership: objects are accessed in one region and</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:5415;left:103"><nobr>do not migrate.</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:5436;left:88"><nobr>• <font style="font-size:12px">revolving access: objects are accessed from a primary</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:5451;left:103"><nobr>region that changes over time.</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:5472;left:88"><nobr>• <font style="font-size:12px">conflicting access: objects are continuously accessed si-</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:5487;left:103"><nobr>multaneously from multiple regions.</nobr></div>
+<div style="position:absolute;top:5525;left:88"><nobr>These access patterns imply not only the optimal placement</nobr></div>
+<div style="position:absolute;top:5543;left:73"><nobr>of replicas in specific geographic regions, but also the consen-</nobr></div>
+<div style="position:absolute;top:5561;left:73"><nobr>sus protocol that should be used to maximize throughput. For</nobr></div>
+<div style="position:absolute;top:5579;left:73"><nobr>example, if commit latency for significant numbers of accesses</nobr></div>
+<div style="position:absolute;top:5597;left:73"><nobr>to a small set of objects outweighs durability requirements,</nobr></div>
+<div style="position:absolute;top:5615;left:73"><nobr>a subquorum can be placed in a single region using Raft,</nobr></div>
+<div style="position:absolute;top:5633;left:73"><nobr>which serializes all accesses through a single leader and is</nobr></div>
+<div style="position:absolute;top:5651;left:73"><nobr>immune to conflicting reads and writes. To increase durability,</nobr></div>
+<div style="position:absolute;top:5669;left:73"><nobr>data can be placed with a leader and primary backup in a</nobr></div>
+<div style="position:absolute;top:5687;left:73"><nobr>single region, and a secondary backup in a remote region (it is</nobr></div>
+<div style="position:absolute;top:5705;left:73"><nobr>important with this scheme to modify the election rules of Raft</nobr></div>
+<div style="position:absolute;top:5723;left:73"><nobr>to decrease the probability that the secondary backup is elected</nobr></div>
+<div style="position:absolute;top:5740;left:73"><nobr>leader). To handle conflicting accesses across regions, EPaxos</nobr></div>
+<div style="position:absolute;top:5758;left:73"><nobr>or Mencius can be used to optimistically serialize proposals</nobr></div>
+<div style="position:absolute;top:5776;left:73"><nobr>across the wide area. HC requires no special modifications to</nobr></div>
+<div style="position:absolute;top:5794;left:73"><nobr>subquorum operation, only requiring that subquorums intersect</nobr></div>
+<div style="position:absolute;top:5812;left:73"><nobr>with the root quorum and that delegation and transitions</nobr></div>
+<div style="position:absolute;top:5830;left:73"><nobr>are implemented correctly. As a result, the root quorum can</nobr></div>
+<div style="position:absolute;top:5848;left:73"><nobr>specify not only the placement of namespace shards with</nobr></div>
+<div style="position:absolute;top:5866;left:73"><nobr>the replica, but also the consensus algorithm that governs</nobr></div>
+<div style="position:absolute;top:5884;left:73"><nobr>them. We envision the root quorum as a distributed system</nobr></div>
+<div style="position:absolute;top:5902;left:73"><nobr>management framework that is not only able to apply policy</nobr></div>
+<div style="position:absolute;top:5920;left:73"><nobr>changes efficiently, but also to monitor real-time performance</nobr></div>
+<div style="position:absolute;top:5938;left:73"><nobr>and to make adaptations on demand. Adaptations are the key</nobr></div>
+<div style="position:absolute;top:5956;left:73"><nobr>to the protocols flexibility but also ensure that the system is</nobr></div>
+<div style="position:absolute;top:5974;left:73"><nobr>lightweight enough to be managed at a global scale without</nobr></div>
+<div style="position:absolute;top:5992;left:73"><nobr>significant resources.</nobr></div>
+<div style="position:absolute;top:5005;left:468"><nobr>D. Fuzzy Transitions</nobr></div>
+<div style="position:absolute;top:5035;left:483"><nobr>Epoch handshakes are required whenever the namespace-to-</nobr></div>
+<div style="position:absolute;top:5053;left:468"><nobr>subquorum mapping changes across an epoch boundary. HC</nobr></div>
+<div style="position:absolute;top:5071;left:468"><nobr>separates epoch transition announcements in the root quorum</nobr></div>
+<div style="position:absolute;top:5089;left:468"><nobr>from implementation in subquorums. Epoch transitions are</nobr></div>
+<div style="position:absolute;top:5107;left:468"><nobr>termed fuzzy because subquorums need not all transition</nobr></div>
+<div style="position:absolute;top:5125;left:468"><nobr>synchronously. There are many reasons why a subquorum</nobr></div>
+<div style="position:absolute;top:5143;left:468"><nobr>might be slow. Communication delays and partitions might</nobr></div>
+<div style="position:absolute;top:5161;left:468"><nobr>delay notification or temporary failures might block local</nobr></div>
+<div style="position:absolute;top:5179;left:468"><nobr>commits. A subquorum might also delay transitioning to allow</nobr></div>
+<div style="position:absolute;top:5197;left:468"><nobr>a local burst of activity to cease such as currently running</nobr></div>
+<div style="position:absolute;top:5215;left:468"><nobr>transactions<font style="font-size:8px">1</font>. Safety is guaranteed by tracking subquorum</nobr></div>
+<div style="position:absolute;top:5233;left:468"><nobr>dependencies across the epoch boundary.</nobr></div>
+<div style="position:absolute;top:5253;left:483"><nobr>Figure 2 shows an epoch transition where the scopes of q<font style="font-size:8px">i</font>,</nobr></div>
+<div style="position:absolute;top:5270;left:468"><nobr>q<font style="font-size:8px">j</font>, and q<font style="font-size:8px">k </font>change across the transition to epoch e as follows:</nobr></div>
+<div style="position:absolute;top:5328;left:544"><nobr>q<font style="font-size:8px">i,e−1 </font>= n<font style="font-size:8px">a</font>,n<font style="font-size:8px">b </font>−→ q<font style="font-size:8px">i,e </font>= n<font style="font-size:8px">a</font></nobr></div>
+<div style="position:absolute;top:5350;left:543"><nobr>q<font style="font-size:8px">j,e−1 </font>= n<font style="font-size:8px">c</font>,n<font style="font-size:8px">d </font>−→ q<font style="font-size:8px">j,e </font>= n<font style="font-size:8px">c</font>,n<font style="font-size:8px">d</font>,n<font style="font-size:8px">f</font></nobr></div>
+<div style="position:absolute;top:5373;left:540"><nobr>q<font style="font-size:8px">k,e−1 </font>= n<font style="font-size:8px">e</font>,n<font style="font-size:8px">f </font>−→ q<font style="font-size:8px">k,e </font>= n<font style="font-size:8px">d</font>,n<font style="font-size:8px">e</font></nobr></div>
+<div style="position:absolute;top:5412;left:483"><nobr>All three subquorums learn of the epoch change at the same</nobr></div>
+<div style="position:absolute;top:5430;left:468"><nobr>time, but become ready with varying delays. These delays</nobr></div>
+<div style="position:absolute;top:5448;left:468"><nobr>could be because of network lags or ongoing local activity.</nobr></div>
+<div style="position:absolute;top:5466;left:468"><nobr>Subquorum q<font style="font-size:8px">i </font>gains no new objects across the transition</nobr></div>
+<div style="position:absolute;top:5484;left:468"><nobr>and moves immediately to the new epoch. Subquorum q<font style="font-size:8px">j</font>’s</nobr></div>
+<div style="position:absolute;top:5502;left:468"><nobr>readiness is slower, but then it sends requests to the owners</nobr></div>
+<div style="position:absolute;top:5520;left:468"><nobr>of both the new objects it acquires in the new epoch. Though</nobr></div>
+<div style="position:absolute;top:5538;left:468"><nobr>q<font style="font-size:8px">i </font>responds immediately, q<font style="font-size:8px">k </font>delays its response until locally</nobr></div>
+<div style="position:absolute;top:5556;left:468"><nobr>operations conclude. Once both handshakes are received, q<font style="font-size:8px">j</font></nobr></div>
+<div style="position:absolute;top:5574;left:468"><nobr>moves into the new epoch, and q<font style="font-size:8px">k </font>later follows suit.</nobr></div>
+<div style="position:absolute;top:5594;left:483"><nobr>These bilateral handshakes allow an epoch change to be</nobr></div>
+<div style="position:absolute;top:5612;left:468"><nobr>implemented incrementally, eliminating the need for lockstep</nobr></div>
+<div style="position:absolute;top:5630;left:468"><nobr>synchronization across the entire system. This flexibility is key</nobr></div>
+<div style="position:absolute;top:5648;left:468"><nobr>to coping with partitions and varying connectivity in the wide</nobr></div>
+<div style="position:absolute;top:5666;left:468"><nobr>area. However, this piecewise transition, in combination with</nobr></div>
+<div style="position:absolute;top:5683;left:468"><nobr>subquorum re-definition and configuration at epoch changes,</nobr></div>
+<div style="position:absolute;top:5701;left:468"><nobr>also means that individual replicas may be part of multiple</nobr></div>
+<div style="position:absolute;top:5719;left:468"><nobr>subquorums at a time.</nobr></div>
+<div style="position:absolute;top:5739;left:483"><nobr>This overlap is possible because replicas may be mapped to</nobr></div>
+<div style="position:absolute;top:5757;left:468"><nobr>distinct subgroups from one epoch to the next. Consider q<font style="font-size:8px">k </font>in</nobr></div>
+<div style="position:absolute;top:5775;left:468"><nobr>Figure 2 again. A single replica process, p, may be remapped</nobr></div>
+<div style="position:absolute;top:5793;left:468"><nobr>from subquorum q<font style="font-size:8px">k,e−1 </font>to subquorum q<font style="font-size:8px">i,e </font>across the transi-</nobr></div>
+<div style="position:absolute;top:5811;left:468"><nobr>tion. Subquorum q<font style="font-size:8px">k,e−1 </font>is late to transition, but q<font style="font-size:8px">i,e </font>begins</nobr></div>
+<div style="position:absolute;top:5829;left:468"><nobr>the new epoch almost immediately. Requiring p to participate</nobr></div>
+<div style="position:absolute;top:5847;left:468"><nobr>in a single subquorum at a time would potentially delay q<font style="font-size:8px">i,e</font>’s</nobr></div>
+<div style="position:absolute;top:5865;left:468"><nobr>transition and impose artificial synchronicity constraints on the</nobr></div>
+<div style="position:absolute;top:5883;left:468"><nobr>system. One of the many changes we made in the base Raft</nobr></div>
+<div style="position:absolute;top:5901;left:468"><nobr>protocol is to allow a replica to have multiple distinct shared</nobr></div>
+<div style="position:absolute;top:5919;left:468"><nobr>logs. Smaller changes concern the mapping of requests and</nobr></div>
+<div style="position:absolute;top:5937;left:468"><nobr>responses to the appropriate consensus group.</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:6px;font-family:Times">
+<div style="position:absolute;top:5978;left:480"><nobr>1<font style="font-size:9px">The HC protocol discussed in this paper does not currently support</font></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:5994;left:468"><nobr>transactions.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:6115;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="6"><b>Page 6</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:6583;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:6193;left:143"><nobr>IV. S<font style="font-size:9px">AFETY AND </font>F<font style="font-size:9px">AULT </font>T<font style="font-size:9px">OLERANCE</font></nobr></div>
+<div style="position:absolute;top:6216;left:88"><nobr>We assert that consensus at the leaf quorums is correct</nobr></div>
+<div style="position:absolute;top:6234;left:73"><nobr>and safe because decisions are implemented using well-known</nobr></div>
+<div style="position:absolute;top:6252;left:73"><nobr>consensus approaches. Hierarchical consensus therefore has</nobr></div>
+<div style="position:absolute;top:6270;left:73"><nobr>to demonstrate linearizable correctness and safety between</nobr></div>
+<div style="position:absolute;top:6287;left:73"><nobr>subquorums for a single epoch and between epochs during</nobr></div>
+<div style="position:absolute;top:6305;left:73"><nobr>transitions. Briefly, linearizability requires external observers</nobr></div>
+<div style="position:absolute;top:6323;left:73"><nobr>to view operations to objects as instantaneous events. Within</nobr></div>
+<div style="position:absolute;top:6341;left:73"><nobr>an epoch, subquorum leaders serially order local accesses,</nobr></div>
+<div style="position:absolute;top:6359;left:73"><nobr>thereby guaranteeing linearizability for all replicas in that</nobr></div>
+<div style="position:absolute;top:6377;left:73"><nobr>quorum. All accesses are redirected to the subquorum that</nobr></div>
+<div style="position:absolute;top:6395;left:73"><nobr>governs that part of the namespace, therefore inside of an</nobr></div>
+<div style="position:absolute;top:6413;left:73"><nobr>epoch, external observers can only observe a single total</nobr></div>
+<div style="position:absolute;top:6431;left:73"><nobr>ordering to each object.</nobr></div>
+<div style="position:absolute;top:6449;left:88"><nobr>Epoch transitions raise the possibility of portions of the</nobr></div>
+<div style="position:absolute;top:6467;left:73"><nobr>namespace being re-assigned from one subquorum to another,</nobr></div>
+<div style="position:absolute;top:6485;left:73"><nobr>with each subquorum making the transition independently.</nobr></div>
+<div style="position:absolute;top:6503;left:73"><nobr>Correctness is guaranteed by an invariant requiring subquo-</nobr></div>
+<div style="position:absolute;top:6520;left:73"><nobr>rums to delay serving newly acquired portions of the names-</nobr></div>
+<div style="position:absolute;top:6538;left:73"><nobr>pace until after completing all appropriate handshakes. Be-</nobr></div>
+<div style="position:absolute;top:6556;left:73"><nobr>tween epochs, it is possible to construct a single total ordering</nobr></div>
+<div style="position:absolute;top:6574;left:73"><nobr>of all accesses using a log grid such that epochs represent</nobr></div>
+<div style="position:absolute;top:6592;left:73"><nobr>the horizontal index and each subquorum log represents the</nobr></div>
+<div style="position:absolute;top:6610;left:73"><nobr>vertical index as described in Vertical Paxos [22]. Serializing</nobr></div>
+<div style="position:absolute;top:6628;left:73"><nobr>accesses across multiple objects can be accomplished by</nobr></div>
+<div style="position:absolute;top:6646;left:73"><nobr>ensuring that those objects are placed in the same namespace.</nobr></div>
+<div style="position:absolute;top:6664;left:73"><nobr>Therefore to prove safety, hierarchical consensus must demon-</nobr></div>
+<div style="position:absolute;top:6682;left:73"><nobr>strate that it operates correctly when replica processes fail.</nobr></div>
+<div style="position:absolute;top:6709;left:73"><nobr>A. Failures</nobr></div>
+<div style="position:absolute;top:6732;left:88"><nobr>During failure-free execution, the root quorum partitions the</nobr></div>
+<div style="position:absolute;top:6749;left:73"><nobr>system into disjoint subquorums, assigns subquorum leaders,</nobr></div>
+<div style="position:absolute;top:6767;left:73"><nobr>and assigns shards of the namespace to subquorums. Each</nobr></div>
+<div style="position:absolute;top:6785;left:73"><nobr>subquorum coordinates and responds to accesses for objects</nobr></div>
+<div style="position:absolute;top:6803;left:73"><nobr>in its assigned shard. We define the system’s safety property</nobr></div>
+<div style="position:absolute;top:6821;left:73"><nobr>as guaranteeing that non-linearizable (or non-sequentially-</nobr></div>
+<div style="position:absolute;top:6839;left:73"><nobr>consistent) event orderings can never be observed. We define</nobr></div>
+<div style="position:absolute;top:6857;left:73"><nobr>the system’s progress property as the system having enough</nobr></div>
+<div style="position:absolute;top:6875;left:73"><nobr>live replicas to commit votes or operations in the root quorum.</nobr></div>
+<div style="position:absolute;top:6893;left:88"><nobr>The system can suffer several types of failures, as shown</nobr></div>
+<div style="position:absolute;top:6911;left:73"><nobr>in Table IV-A. We assume that each of these failure types are</nobr></div>
+<div style="position:absolute;top:6929;left:73"><nobr>detected by the absence of communication and that replicas</nobr></div>
+<div style="position:absolute;top:6947;left:73"><nobr>may automatically rejoin the system once communication is</nobr></div>
+<div style="position:absolute;top:6964;left:73"><nobr>re-established. Failures of subquorum and root quorum lead-</nobr></div>
+<div style="position:absolute;top:6982;left:73"><nobr>ers are handled through the normal consensus mechanisms.</nobr></div>
+<div style="position:absolute;top:7000;left:73"><nobr>Failures of subquorum peers are handled by the local leader</nobr></div>
+<div style="position:absolute;top:7018;left:73"><nobr>petitioning the root quorum to re-configure the subquorum</nobr></div>
+<div style="position:absolute;top:7036;left:73"><nobr>in the next epoch. Failure of a root quorum peer is the</nobr></div>
+<div style="position:absolute;top:7054;left:73"><nobr>failure of subquorum leader, which is handled as above. Root</nobr></div>
+<div style="position:absolute;top:7072;left:73"><nobr>quorum heartbeats help inform other replicas of leadership</nobr></div>
+<div style="position:absolute;top:7090;left:73"><nobr>changes, potentially necessary when individual subquorums</nobr></div>
+<div style="position:absolute;top:7108;left:73"><nobr>break down.</nobr></div>
+<div style="position:absolute;top:7126;left:88"><nobr>HC’s structure means that some faults are more important</nobr></div>
+<div style="position:absolute;top:7144;left:73"><nobr>than others. Proper operation of the root quorum requires</nobr></div>
+<div style="position:absolute;top:7162;left:73"><nobr>the delegates representing the majority of replicas to be non-</nobr></div>
+<div style="position:absolute;top:7180;left:73"><nobr>faulty. We consider the case where all replicas are assigned</nobr></div>
+<div style="position:absolute;top:6193;left:468"><nobr>to a subquorum and the delegates are the subquorum leaders.</nobr></div>
+<div style="position:absolute;top:6211;left:468"><nobr>Given a system with 2m + 1 subquorums, each of 2n + 1</nobr></div>
+<div style="position:absolute;top:6229;left:468"><nobr>replicas, the entire system’s progress can be halted with as</nobr></div>
+<div style="position:absolute;top:6247;left:468"><nobr>few as (m + 1)(n + 1) well-chosen failures. Therefore, in</nobr></div>
+<div style="position:absolute;top:6265;left:468"><nobr>worst case, the system can only tolerate:</nobr></div>
+<div style="position:absolute;top:6293;left:586"><nobr>f<font style="font-size:8px">worst </font>= mn + m + n</nobr></div>
+<div style="position:absolute;top:6321;left:468"><nobr>failures and still make progress. At maximum, HC’s basic</nobr></div>
+<div style="position:absolute;top:6338;left:468"><nobr>protocol can tolerate up to:</nobr></div>
+<div style="position:absolute;top:6366;left:491"><nobr>f<font style="font-size:8px">best </font>= (m + 1) ∗ n + m ∗ (2n +1)=3mn + m + n</nobr></div>
+<div style="position:absolute;top:6394;left:468"><nobr>failures. As an example, a m = 12 with n = 2 system</nobr></div>
+<div style="position:absolute;top:6412;left:468"><nobr>is composed of 25 total replicas that operate subquorums</nobr></div>
+<div style="position:absolute;top:6430;left:468"><nobr>of 5 replicas each and can tolerate at least 8 and up to 16</nobr></div>
+<div style="position:absolute;top:6448;left:468"><nobr>failures. An m = 10, n = 1 system can tolerate at least 7,</nobr></div>
+<div style="position:absolute;top:6466;left:468"><nobr>and a maximum of 12, failures out of 21 total replicas and</nobr></div>
+<div style="position:absolute;top:6484;left:468"><nobr>subquorums of 3 replicas. Individual subquorums might still</nobr></div>
+<div style="position:absolute;top:6502;left:468"><nobr>be able to perform local operations despite an impasse at the</nobr></div>
+<div style="position:absolute;top:6520;left:468"><nobr>global level. Total subquorum failure can temporarily cause a</nobr></div>
+<div style="position:absolute;top:6538;left:468"><nobr>portion of the namespace to be unserved. However, the root</nobr></div>
+<div style="position:absolute;top:6555;left:468"><nobr>quorum eventually times out and elects a new leader, which</nobr></div>
+<div style="position:absolute;top:6573;left:468"><nobr>busts the delegations and allows a reconfiguration that will</nobr></div>
+<div style="position:absolute;top:6591;left:468"><nobr>allow the system to operate normally.</nobr></div>
+<div style="position:absolute;top:6619;left:468"><nobr>B. Assassination</nobr></div>
+<div style="position:absolute;top:6642;left:483"><nobr>Singleton consensus protocols, including Raft and EPaxos,</nobr></div>
+<div style="position:absolute;top:6660;left:468"><nobr>can tolerate just under half of the entire system failing. As</nobr></div>
+<div style="position:absolute;top:6678;left:468"><nobr>described above, HC’s structure makes it more vulnerable</nobr></div>
+<div style="position:absolute;top:6695;left:468"><nobr>to clustered failures. Therefore we define a disaster timeout,</nobr></div>
+<div style="position:absolute;top:6713;left:468"><nobr>which uses direct consensus decision among all system repli-</nobr></div>
+<div style="position:absolute;top:6731;left:468"><nobr>cas to tolerate any f replicas failing out of 2f +1 total replicas</nobr></div>
+<div style="position:absolute;top:6749;left:468"><nobr>in the system. In particular, we are concerned about the</nobr></div>
+<div style="position:absolute;top:6767;left:468"><nobr>edge case where all delegates simultaneously fail, an irregular</nobr></div>
+<div style="position:absolute;top:6785;left:468"><nobr>occurrence that eliminates the root leader and all possible</nobr></div>
+<div style="position:absolute;top:6803;left:468"><nobr>root leader candidates such that the root term would never</nobr></div>
+<div style="position:absolute;top:6821;left:468"><nobr>be incremented to bust delegation. Because of the specificity</nobr></div>
+<div style="position:absolute;top:6839;left:468"><nobr>of such a failure, we describe it as assassination.</nobr></div>
+<div style="position:absolute;top:6857;left:483"><nobr>The disaster vote is triggered by the absence of commu-</nobr></div>
+<div style="position:absolute;top:6875;left:468"><nobr>nication from the root leader for a time period significantly</nobr></div>
+<div style="position:absolute;top:6893;left:468"><nobr>longer than it would normally take to simply elect a new root</nobr></div>
+<div style="position:absolute;top:6911;left:468"><nobr>leader from the available delegates. Any replica may become</nobr></div>
+<div style="position:absolute;top:6929;left:468"><nobr>a root leader candidate if this timeout occurs by incrementing</nobr></div>
+<div style="position:absolute;top:6946;left:468"><nobr>its term for the root quorum quorum such that r &gt; d. The</nobr></div>
+<div style="position:absolute;top:6964;left:468"><nobr>key difficulty is in preventing delegated votes and disaster</nobr></div>
+<div style="position:absolute;top:6982;left:468"><nobr>votes from reaching conflicting decisions. Such situations</nobr></div>
+<div style="position:absolute;top:7000;left:468"><nobr>might occur when temporarily unavailable delegates regain</nobr></div>
+<div style="position:absolute;top:7018;left:468"><nobr>connectivity and allow a wedged root quorum to unblock.</nobr></div>
+<div style="position:absolute;top:7036;left:468"><nobr>Meanwhile, a disaster vote might be concurrently underway.</nobr></div>
+<div style="position:absolute;top:7054;left:483"><nobr>Replica delegations are defined as intervals over specific</nobr></div>
+<div style="position:absolute;top:7072;left:468"><nobr>slots. Using local subquorum slots would fall prey to the</nobr></div>
+<div style="position:absolute;top:7090;left:468"><nobr>above problem, so we define delegations as a small number</nobr></div>
+<div style="position:absolute;top:7108;left:468"><nobr>(often one) of root terms. During failure-free operation, peers</nobr></div>
+<div style="position:absolute;top:7126;left:468"><nobr>delegate to their leaders and are all represented in the next</nobr></div>
+<div style="position:absolute;top:7144;left:468"><nobr>root election or commit. Peers then renew their delegations</nobr></div>
+<div style="position:absolute;top:7162;left:468"><nobr>to their leaders when a new root leader is elected. Consider</nobr></div>
+<div style="position:absolute;top:7180;left:468"><nobr>a subquorum where all peers have delegated votes to their</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:7303;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="7"><b>Page 7</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:7771;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:7375;left:286"><nobr>Failure Type</nobr></div>
+<div style="position:absolute;top:7375;left:510"><nobr>Response</nobr></div>
+<div style="position:absolute;top:7389;left:250"><nobr>subquorum peer</nobr></div>
+<div style="position:absolute;top:7389;left:402"><nobr>request replica repartition from root quorum</nobr></div>
+<div style="position:absolute;top:7403;left:250"><nobr>subquorum leader</nobr></div>
+<div style="position:absolute;top:7403;left:402"><nobr>local election, request replacement from root quorum</nobr></div>
+<div style="position:absolute;top:7416;left:250"><nobr>root leader</nobr></div>
+<div style="position:absolute;top:7416;left:402"><nobr>root election (with delegations)</nobr></div>
+<div style="position:absolute;top:7430;left:250"><nobr>delegate</nobr></div>
+<div style="position:absolute;top:7430;left:402"><nobr>root election(s) until delegations busted</nobr></div>
+<div style="position:absolute;top:7443;left:250"><nobr>all delegates (assassination)</nobr></div>
+<div style="position:absolute;top:7443;left:402"><nobr>root election after disaster timeout</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:7491;left:73"><nobr>leader for the next root slot. If that leader fails, none of the</nobr></div>
+<div style="position:absolute;top:7509;left:73"><nobr>peers will be represented. The first response is initiated when a</nobr></div>
+<div style="position:absolute;top:7527;left:73"><nobr>replica holding delegations (or its own vote) times out waiting</nobr></div>
+<div style="position:absolute;top:7545;left:73"><nobr>for the root heartbeat. That replica increments its own root</nobr></div>
+<div style="position:absolute;top:7563;left:73"><nobr>term, adopts the prior system configuration as its own, and</nobr></div>
+<div style="position:absolute;top:7581;left:73"><nobr>becomes a root candidate. This candidacy fails, as a majority</nobr></div>
+<div style="position:absolute;top:7599;left:73"><nobr>of subquorum leaders, with all of their delegated votes, are</nobr></div>
+<div style="position:absolute;top:7616;left:73"><nobr>gone. Progress is not made until a second root election time</nobr></div>
+<div style="position:absolute;top:7634;left:73"><nobr>out occurs, causing a second incrementing of the root term</nobr></div>
+<div style="position:absolute;top:7652;left:73"><nobr>and causing all delegations to lapse. In our default case where</nobr></div>
+<div style="position:absolute;top:7670;left:73"><nobr>a delegation is for a single root event, this happens after the</nobr></div>
+<div style="position:absolute;top:7688;left:73"><nobr>first root election failure and allows the entire system to vote.</nobr></div>
+<div style="position:absolute;top:7706;left:88"><nobr>However, if this delegate remains partitioned, it is pos-</nobr></div>
+<div style="position:absolute;top:7724;left:73"><nobr>sible that there is a concurrent vote from a non-delegate</nobr></div>
+<div style="position:absolute;top:7742;left:73"><nobr>candidate after the disaster timeout. Because the subquorums</nobr></div>
+<div style="position:absolute;top:7760;left:73"><nobr>intersect with the root quorum it is impossible for a delegate</nobr></div>
+<div style="position:absolute;top:7778;left:73"><nobr>to achieve a majority while being partitioned, therefore the</nobr></div>
+<div style="position:absolute;top:7796;left:73"><nobr>disaster candidate election will succeed. When the partitioned</nobr></div>
+<div style="position:absolute;top:7814;left:73"><nobr>delegates rejoin the system, their root term will be lower than</nobr></div>
+<div style="position:absolute;top:7832;left:73"><nobr>the term of the disaster candidate’s, therefore they will lose</nobr></div>
+<div style="position:absolute;top:7850;left:73"><nobr>their delegations and will rejoin the system as a non-delegate</nobr></div>
+<div style="position:absolute;top:7868;left:73"><nobr>replica.</nobr></div>
+<div style="position:absolute;top:7896;left:193"><nobr>V. I<font style="font-size:9px">MPLEMENTATION</font></nobr></div>
+<div style="position:absolute;top:7919;left:88"><nobr>Alia implements a replicated key-value store with strong</nobr></div>
+<div style="position:absolute;top:7937;left:73"><nobr>consistency via the hierarchical consensus protocol using</nobr></div>
+<div style="position:absolute;top:7955;left:73"><nobr>Golang and gRPC for communication. Alia is designed as</nobr></div>
+<div style="position:absolute;top:7973;left:73"><nobr>a single process, such that an Alia cluster is composed of</nobr></div>
+<div style="position:absolute;top:7991;left:73"><nobr>P processes of the same type, each of which manage a</nobr></div>
+<div style="position:absolute;top:8009;left:73"><nobr>partial replica of the object space and participate in both</nobr></div>
+<div style="position:absolute;top:8027;left:73"><nobr>root consensus and subquorum consensus. Consensus and</nobr></div>
+<div style="position:absolute;top:8045;left:73"><nobr>delegated voting are implemented using modified Raft as the</nobr></div>
+<div style="position:absolute;top:8063;left:73"><nobr>underlying protocol. Each replica implements an event loop</nobr></div>
+<div style="position:absolute;top:8081;left:73"><nobr>that responds to timing events, client requests, and messages</nobr></div>
+<div style="position:absolute;top:8098;left:73"><nobr>from peers. Events may cause the replica to change state,</nobr></div>
+<div style="position:absolute;top:8116;left:73"><nobr>modify a command log, broadcast messages to peers, modify</nobr></div>
+<div style="position:absolute;top:8134;left:73"><nobr>the local store, or respond to a client. Because events are</nobr></div>
+<div style="position:absolute;top:8152;left:73"><nobr>critical to the correctness and safety of the system, all events</nobr></div>
+<div style="position:absolute;top:8170;left:73"><nobr>are serialized through a single channel so that they are handled</nobr></div>
+<div style="position:absolute;top:8188;left:73"><nobr>sequentially by the primary process.</nobr></div>
+<div style="position:absolute;top:8206;left:88"><nobr>In addition to the major changes to base Raft such as</nobr></div>
+<div style="position:absolute;top:8224;left:73"><nobr>allowing replicas to be part of multiple subquorums simul-</nobr></div>
+<div style="position:absolute;top:8242;left:73"><nobr>taneously and to accept delegated votes, we also made many</nobr></div>
+<div style="position:absolute;top:8260;left:73"><nobr>smaller changes that had pervasive effects. One such change</nobr></div>
+<div style="position:absolute;top:8278;left:73"><nobr>was including the epoch number alongside the term in all log</nobr></div>
+<div style="position:absolute;top:8296;left:73"><nobr>entries and using it as an invariant whether a replica is as up</nobr></div>
+<div style="position:absolute;top:8314;left:73"><nobr>to date as another log. We allowed aggregation of multiple</nobr></div>
+<div style="position:absolute;top:8332;left:73"><nobr>client requests into a single round by subquorum leaders,</nobr></div>
+<div style="position:absolute;top:8350;left:73"><nobr>which helped increase throughput and decrease the number of</nobr></div>
+<div style="position:absolute;top:8368;left:73"><nobr>required messages. We also implemented hierarchical thrifty</nobr></div>
+<div style="position:absolute;top:7491;left:468"><nobr>communications to minimize the number of messages such</nobr></div>
+<div style="position:absolute;top:7509;left:468"><nobr>that root quorum would send messages to delegates first,</nobr></div>
+<div style="position:absolute;top:7527;left:468"><nobr>then broadcast to all replicas if delegate messages were not</nobr></div>
+<div style="position:absolute;top:7545;left:468"><nobr>acknowledged.</nobr></div>
+<div style="position:absolute;top:7574;left:600"><nobr>VI. E<font style="font-size:9px">VALUATION</font></nobr></div>
+<div style="position:absolute;top:7598;left:483"><nobr>HC was designed to adapt both to dynamic workloads</nobr></div>
+<div style="position:absolute;top:7615;left:468"><nobr>as well as variable network conditions. We therefore evalu-</nobr></div>
+<div style="position:absolute;top:7633;left:468"><nobr>ate HC in three distinct environments: a homogeneous data</nobr></div>
+<div style="position:absolute;top:7651;left:468"><nobr>center, a heterogeneous real-world network, and a globally</nobr></div>
+<div style="position:absolute;top:7669;left:468"><nobr>distributed cloud network. The homogeneous cluster is hosted</nobr></div>
+<div style="position:absolute;top:7687;left:468"><nobr>on Amazon EC2 and includes 26 “t2.medium” instances:</nobr></div>
+<div style="position:absolute;top:7705;left:468"><nobr>dual-core virtual machines running in a single VPC with</nobr></div>
+<div style="position:absolute;top:7723;left:468"><nobr>inter-machine latencies (λ) normally distributed with a mean,</nobr></div>
+<div style="position:absolute;top:7741;left:468"><nobr>λ<font style="font-size:8px">µ </font>= 0.399ms and standard deviation, λ<font style="font-size:8px">σ </font>= 0.216ms.</nobr></div>
+<div style="position:absolute;top:7759;left:468"><nobr>The heterogeneous cluster (UMD) consists of several local</nobr></div>
+<div style="position:absolute;top:7777;left:468"><nobr>machines distributed across a wide area, with inter-machine</nobr></div>
+<div style="position:absolute;top:7795;left:468"><nobr>latencies ranging from λ<font style="font-size:8px">µ </font>= 2.527ms, λ<font style="font-size:8px">σ </font>= 1.147ms to</nobr></div>
+<div style="position:absolute;top:7812;left:468"><nobr>λ<font style="font-size:8px">µ </font>= 34.651ms, λ<font style="font-size:8px">σ </font>= 37.915ms. The variability of this</nobr></div>
+<div style="position:absolute;top:7831;left:468"><nobr>network also poses challenges that HC is uniquely suited to</nobr></div>
+<div style="position:absolute;top:7849;left:468"><nobr>handle via root quorum-guided adaptation. We explore two</nobr></div>
+<div style="position:absolute;top:7867;left:468"><nobr>distinct scenarios – sawtooth and repartitioning – using this</nobr></div>
+<div style="position:absolute;top:7884;left:468"><nobr>cluster; all other experiments were run on the EC2 cluster.</nobr></div>
+<div style="position:absolute;top:7903;left:483"><nobr>In our final experiment, we explore the use of HC in</nobr></div>
+<div style="position:absolute;top:7920;left:468"><nobr>an extremely large, planetary-scale system comprised of 105</nobr></div>
+<div style="position:absolute;top:7938;left:468"><nobr>replicas in 15 data centers in 5 continents spanning the</nobr></div>
+<div style="position:absolute;top:7956;left:468"><nobr>northern hemisphere and South America. This experiment</nobr></div>
+<div style="position:absolute;top:7974;left:468"><nobr>was also hosted on EC2 “t2.medium“ instances in each of</nobr></div>
+<div style="position:absolute;top:7992;left:468"><nobr>the regions available to us at the time of this writing. In</nobr></div>
+<div style="position:absolute;top:8010;left:468"><nobr>this context, reporting average latencies is difficult as inter-</nobr></div>
+<div style="position:absolute;top:8028;left:468"><nobr>region latencies depend more on network distance than can be</nobr></div>
+<div style="position:absolute;top:8046;left:468"><nobr>meaningfully ascribed to a single central tendency.</nobr></div>
+<div style="position:absolute;top:8075;left:468"><nobr>A. Basic Performance</nobr></div>
+<div style="position:absolute;top:8098;left:483"><nobr>HC is partially motivated by the need to scale strong</nobr></div>
+<div style="position:absolute;top:8116;left:468"><nobr>consistency to large cluster sizes. We based our work on the</nobr></div>
+<div style="position:absolute;top:8134;left:468"><nobr>assumption that consensus performance decreases as the quo-</nobr></div>
+<div style="position:absolute;top:8152;left:468"><nobr>rum size increases, which we confirm empirically in Figure 3.</nobr></div>
+<div style="position:absolute;top:8170;left:468"><nobr>This figure shows the maximum throughput against system</nobr></div>
+<div style="position:absolute;top:8188;left:468"><nobr>size for a variety of workloads, up to 120 concurrent clients. A</nobr></div>
+<div style="position:absolute;top:8206;left:468"><nobr>workload consists of one or more clients continuously sending</nobr></div>
+<div style="position:absolute;top:8224;left:468"><nobr>writes of a specific object or objects to the cluster without</nobr></div>
+<div style="position:absolute;top:8242;left:468"><nobr>pause.</nobr></div>
+<div style="position:absolute;top:8260;left:483"><nobr>Standard consensus algorithms, Raft in particular, scale</nobr></div>
+<div style="position:absolute;top:8278;left:468"><nobr>poorly with uniformly decreasing throughput as nodes are</nobr></div>
+<div style="position:absolute;top:8296;left:468"><nobr>added to the cluster. Commit latency increases with quorum</nobr></div>
+<div style="position:absolute;top:8314;left:468"><nobr>size as the system has to wait for more responses from</nobr></div>
+<div style="position:absolute;top:8332;left:468"><nobr>peers, thereby decreasing overall throughput. Figures 3 and 4</nobr></div>
+<div style="position:absolute;top:8350;left:468"><nobr>clearly show the multiplicative advantage of HC’s hierarchical</nobr></div>
+<div style="position:absolute;top:8368;left:468"><nobr>structure. Note that though HC is not shown to scale linearly</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:8491;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="8"><b>Page 8</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:8959;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:8832;left:73"><nobr>Fig. 3. Throughput increases with larger quorum sizes instead of decreasing.</nobr></div>
+</span></font>
+<font size="3" face="Times" color="#262626"><span style="font-size:10px;font-family:Times;color:#262626">
+<div style="position:absolute;top:8784;left:564"><nobr>20</nobr></div>
+<div style="position:absolute;top:8784;left:612"><nobr>40</nobr></div>
+<div style="position:absolute;top:8784;left:660"><nobr>60</nobr></div>
+<div style="position:absolute;top:8784;left:709"><nobr>80</nobr></div>
+<div style="position:absolute;top:8784;left:756"><nobr>100</nobr></div>
+<div style="position:absolute;top:8784;left:804"><nobr>120</nobr></div>
+<div style="position:absolute;top:8791;left:645"><nobr>concurrent clients</nobr></div>
+<div style="position:absolute;top:8779;left:515"><nobr>0</nobr></div>
+<div style="position:absolute;top:8756;left:507"><nobr>5000</nobr></div>
+<div style="position:absolute;top:8733;left:505"><nobr>10000</nobr></div>
+<div style="position:absolute;top:8710;left:505"><nobr>15000</nobr></div>
+<div style="position:absolute;top:8687;left:505"><nobr>20000</nobr></div>
+<div style="position:absolute;top:8664;left:505"><nobr>25000</nobr></div>
+<div style="position:absolute;top:8642;left:505"><nobr>30000</nobr></div>
+<div style="position:absolute;top:8619;left:505"><nobr>35000</nobr></div>
+<div style="position:absolute;top:8596;left:505"><nobr>40000</nobr></div>
+<div style="position:absolute;top:8712;left:501"><nobr>throughput (writes/second)</nobr></div>
+<div style="position:absolute;top:8595;left:538"><nobr>3/3</nobr></div>
+<div style="position:absolute;top:8602;left:538"><nobr>6/3</nobr></div>
+<div style="position:absolute;top:8608;left:538"><nobr>9/3</nobr></div>
+<div style="position:absolute;top:8615;left:538"><nobr>12/3</nobr></div>
+<div style="position:absolute;top:8621;left:538"><nobr>15/3</nobr></div>
+<div style="position:absolute;top:8628;left:538"><nobr>18/3</nobr></div>
+<div style="position:absolute;top:8634;left:538"><nobr>21/3</nobr></div>
+<div style="position:absolute;top:8640;left:538"><nobr>24/3</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:8832;left:479"><nobr>Fig. 4. HC scales to handle workloads without coordination bottlenecks.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:8879;left:73"><nobr>in these figures, this is due to performance bottlenecks of</nobr></div>
+<div style="position:absolute;top:8897;left:73"><nobr>the networking implementation in these experiments. In our</nobr></div>
+<div style="position:absolute;top:8915;left:73"><nobr>final experiment, we show linear scaling with our latest</nobr></div>
+<div style="position:absolute;top:8932;left:73"><nobr>implementation of HC.</nobr></div>
+<div style="position:absolute;top:8967;left:88"><nobr>There are at least two factors limiting the HC throughput</nobr></div>
+<div style="position:absolute;top:8985;left:73"><nobr>shown in our initial experiments. First, the HC subquorums</nobr></div>
+<div style="position:absolute;top:9003;left:73"><nobr>for the larger system sizes are not saturated. A single 3-node</nobr></div>
+<div style="position:absolute;top:9021;left:73"><nobr>subquorum saturates at around 25 clients and this experiment</nobr></div>
+<div style="position:absolute;top:9039;left:73"><nobr>has only about 15 clients per subquorum for the largest</nobr></div>
+<div style="position:absolute;top:9056;left:73"><nobr>cluster size. We ran experiments with 600 clients, saturating all</nobr></div>
+<div style="position:absolute;top:9074;left:73"><nobr>subquorums even in the 24-node case. This throughput peaked</nobr></div>
+<div style="position:absolute;top:9092;left:73"><nobr>at slightly over 50,000 committed writes per second, better but</nobr></div>
+<div style="position:absolute;top:9110;left:73"><nobr>still lower than the linear scaling we had expected.</nobr></div>
+<div style="position:absolute;top:9145;left:88"><nobr>We think the reason for this ceiling is hinted at by Fig-</nobr></div>
+<div style="position:absolute;top:9163;left:73"><nobr>ure 4. This figure shows increasingly larger variability with</nobr></div>
+<div style="position:absolute;top:9180;left:73"><nobr>increasing system sizes. A more thorough examination of</nobr></div>
+<div style="position:absolute;top:9198;left:73"><nobr>the data shows widely varying performance across individual</nobr></div>
+<div style="position:absolute;top:9216;left:73"><nobr>subquorums in the larger configurations. After instrumenting</nobr></div>
+<div style="position:absolute;top:9234;left:73"><nobr>the experiments to diagnose the problem, we determined</nobr></div>
+<div style="position:absolute;top:9252;left:73"><nobr>it was a bug in the networking code, which we repaired</nobr></div>
+<div style="position:absolute;top:9270;left:73"><nobr>and improved. By aggregating append entries messages from</nobr></div>
+<div style="position:absolute;top:9288;left:73"><nobr>clients while consensus messages were in-flight, we managed</nobr></div>
+<div style="position:absolute;top:9306;left:73"><nobr>to dramatically increase the performance of single quorums</nobr></div>
+<div style="position:absolute;top:9324;left:73"><nobr>and reduce the number of messages sent. This change also</nobr></div>
+<div style="position:absolute;top:9342;left:73"><nobr>had the effect of ensuring that the variability was decreased</nobr></div>
+<div style="position:absolute;top:9360;left:73"><nobr>in our final experiment.</nobr></div>
+<div style="position:absolute;top:9394;left:88"><nobr>The effect of saturation is also demonstrated in Figure 5,</nobr></div>
+<div style="position:absolute;top:9412;left:73"><nobr>which shows cumulative latency distributions for different</nobr></div>
+<div style="position:absolute;top:9430;left:73"><nobr>system sizes holding the workload (number of concurrent</nobr></div>
+<div style="position:absolute;top:9448;left:73"><nobr>clients) constant. The fastest (24/3) shows nearly 80% of</nobr></div>
+<div style="position:absolute;top:9466;left:73"><nobr>client write requests being serviced in under 2 msec. Larger</nobr></div>
+<div style="position:absolute;top:9484;left:73"><nobr>system sizes are faster because the smaller systems suffer</nobr></div>
+<div style="position:absolute;top:9502;left:73"><nobr>from contention (25 clients can saturate a single subquorum).</nobr></div>
+<div style="position:absolute;top:9520;left:73"><nobr>Because throughput is directly related to commit latency,</nobr></div>
+<div style="position:absolute;top:9538;left:73"><nobr>throughput variability can be mitigated by adding additional</nobr></div>
+<div style="position:absolute;top:9556;left:73"><nobr>subquorums to balance load.</nobr></div>
+</span></font>
+<font size="3" face="Times" color="#262626"><span style="font-size:10px;font-family:Times;color:#262626">
+<div style="position:absolute;top:9095;left:512"><nobr>0.25</nobr></div>
+<div style="position:absolute;top:9095;left:548"><nobr>0.50</nobr></div>
+<div style="position:absolute;top:9095;left:585"><nobr>1.00</nobr></div>
+<div style="position:absolute;top:9095;left:622"><nobr>2.00</nobr></div>
+<div style="position:absolute;top:9095;left:658"><nobr>4.00</nobr></div>
+<div style="position:absolute;top:9095;left:695"><nobr>8.00</nobr></div>
+<div style="position:absolute;top:9095;left:730"><nobr>16.00</nobr></div>
+<div style="position:absolute;top:9095;left:766"><nobr>32.00</nobr></div>
+<div style="position:absolute;top:9103;left:633"><nobr>commit latency (ms)</nobr></div>
+<div style="position:absolute;top:9089;left:506"><nobr>0.0</nobr></div>
+<div style="position:absolute;top:9051;left:506"><nobr>0.2</nobr></div>
+<div style="position:absolute;top:9013;left:506"><nobr>0.4</nobr></div>
+<div style="position:absolute;top:8975;left:506"><nobr>0.6</nobr></div>
+<div style="position:absolute;top:8937;left:506"><nobr>0.8</nobr></div>
+<div style="position:absolute;top:8899;left:506"><nobr>1.0</nobr></div>
+<div style="position:absolute;top:9022;left:502"><nobr>cumulative frequency</nobr></div>
+<div style="position:absolute;top:8965;left:788"><nobr>3/3</nobr></div>
+<div style="position:absolute;top:8973;left:788"><nobr>6/3</nobr></div>
+<div style="position:absolute;top:8982;left:788"><nobr>9/3</nobr></div>
+<div style="position:absolute;top:8990;left:788"><nobr>12/3</nobr></div>
+<div style="position:absolute;top:8998;left:788"><nobr>15/3</nobr></div>
+<div style="position:absolute;top:9006;left:788"><nobr>18/3</nobr></div>
+<div style="position:absolute;top:9014;left:788"><nobr>21/3</nobr></div>
+<div style="position:absolute;top:9022;left:788"><nobr>24/3</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:9142;left:491"><nobr>Fig. 5. Cumulative latency of requests decreases with system size.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:9190;left:468"><nobr>B. Adaptability</nobr></div>
+<div style="position:absolute;top:9214;left:483"><nobr>Besides pure performance and scaling, HC is also motivated</nobr></div>
+<div style="position:absolute;top:9232;left:468"><nobr>by the need to adapt to varying environmental conditions. In</nobr></div>
+<div style="position:absolute;top:9250;left:468"><nobr>the next set of experiments, we explore two common runtime</nobr></div>
+<div style="position:absolute;top:9268;left:468"><nobr>scenarios that motivate adaptation: shifting client workloads</nobr></div>
+<div style="position:absolute;top:9286;left:468"><nobr>and failures. We show that HC is able to adapt and recover</nobr></div>
+<div style="position:absolute;top:9304;left:468"><nobr>with little loss in performance. These scenarios are shown in</nobr></div>
+<div style="position:absolute;top:9322;left:468"><nobr>Figures 7 and 6 as throughput over time, where vertical dotted</nobr></div>
+<div style="position:absolute;top:9340;left:468"><nobr>lines indicate an epoch change.</nobr></div>
+<div style="position:absolute;top:9358;left:483"><nobr>The first scenario, described by the time series in Figure 6</nobr></div>
+<div style="position:absolute;top:9376;left:468"><nobr>shows an HC 3-replica configuration moving through two</nobr></div>
+<div style="position:absolute;top:9394;left:468"><nobr>epoch changes. Each epoch change is triggered by the need</nobr></div>
+<div style="position:absolute;top:9412;left:468"><nobr>to localize objects accessed by clients to nearby subquorums.</nobr></div>
+<div style="position:absolute;top:9430;left:468"><nobr>The scenario shown starts with all clients co-located with</nobr></div>
+<div style="position:absolute;top:9448;left:468"><nobr>the subquorum serving the shard of the namespace they are</nobr></div>
+<div style="position:absolute;top:9466;left:468"><nobr>accessing. However, clients incrementally change their access</nobr></div>
+<div style="position:absolute;top:9484;left:468"><nobr>patterns first to an object located on one remote subquorum,</nobr></div>
+<div style="position:absolute;top:9502;left:468"><nobr>and then to the object owned by the other. In both cases, the</nobr></div>
+<div style="position:absolute;top:9520;left:468"><nobr>root quorum adapts the system by repartitioning the namespace</nobr></div>
+<div style="position:absolute;top:9538;left:468"><nobr>such that the object defining their current focus is served by</nobr></div>
+<div style="position:absolute;top:9556;left:468"><nobr>the co-located subquorum.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:9679;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="9"><b>Page 9</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:10147;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times" color="#262626"><span style="font-size:10px;font-family:Times;color:#262626">
+<div style="position:absolute;top:9983;left:252"><nobr>11:09:00</nobr></div>
+<div style="position:absolute;top:9983;left:399"><nobr>11:10:00</nobr></div>
+<div style="position:absolute;top:9981;left:179"><nobr>11:08:30</nobr></div>
+<div style="position:absolute;top:9981;left:326"><nobr>11:09:30</nobr></div>
+<div style="position:absolute;top:9992;left:265"><nobr>time</nobr></div>
+<div style="position:absolute;top:9969;left:114"><nobr>0</nobr></div>
+<div style="position:absolute;top:9944;left:104"><nobr>2000</nobr></div>
+<div style="position:absolute;top:9919;left:104"><nobr>4000</nobr></div>
+<div style="position:absolute;top:9894;left:104"><nobr>6000</nobr></div>
+<div style="position:absolute;top:9869;left:104"><nobr>8000</nobr></div>
+<div style="position:absolute;top:9844;left:101"><nobr>10000</nobr></div>
+<div style="position:absolute;top:9819;left:101"><nobr>12000</nobr></div>
+<div style="position:absolute;top:9794;left:101"><nobr>14000</nobr></div>
+<div style="position:absolute;top:9917;left:97"><nobr>number of writes per second</nobr></div>
+<div style="position:absolute;top:9951;left:144"><nobr>eris</nobr></div>
+<div style="position:absolute;top:9960;left:144"><nobr>hyperion</nobr></div>
+<div style="position:absolute;top:9968;left:144"><nobr>lagoon</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:10031;left:115"><nobr>Fig. 6. Reconfiguration to adapt to changing access patterns.</nobr></div>
+</span></font>
+<font size="3" face="Times" color="#262626"><span style="font-size:10px;font-family:Times;color:#262626">
+<div style="position:absolute;top:9981;left:521"><nobr>11:23</nobr></div>
+<div style="position:absolute;top:9981;left:595"><nobr>11:24</nobr></div>
+<div style="position:absolute;top:9981;left:670"><nobr>11:25</nobr></div>
+<div style="position:absolute;top:9981;left:744"><nobr>11:26</nobr></div>
+<div style="position:absolute;top:9989;left:650"><nobr>time</nobr></div>
+<div style="position:absolute;top:9968;left:500"><nobr>0</nobr></div>
+<div style="position:absolute;top:9936;left:493"><nobr>200</nobr></div>
+<div style="position:absolute;top:9903;left:493"><nobr>400</nobr></div>
+<div style="position:absolute;top:9871;left:493"><nobr>600</nobr></div>
+<div style="position:absolute;top:9838;left:493"><nobr>800</nobr></div>
+<div style="position:absolute;top:9806;left:490"><nobr>1000</nobr></div>
+<div style="position:absolute;top:9917;left:486"><nobr>number of writes per second</nobr></div>
+<div style="position:absolute;top:9952;left:778"><nobr>eris</nobr></div>
+<div style="position:absolute;top:9960;left:778"><nobr>hyperion</nobr></div>
+<div style="position:absolute;top:9968;left:778"><nobr>sedna</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:10031;left:498"><nobr>Fig. 7. Reconfiguration to take over from failing subquorums.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:10px;font-family:Times">
+<div style="position:absolute;top:10294;left:120"><nobr>3 6 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60 63 66 69 72 75 78 81 84 87 90</nobr></div>
+<div style="position:absolute;top:10302;left:160"><nobr>system size (number of replicas allocated to subquorums, total size=105 replicas)</nobr></div>
+<div style="position:absolute;top:10288;left:109"><nobr>0</nobr></div>
+<div style="position:absolute;top:10251;left:91"><nobr>100000</nobr></div>
+<div style="position:absolute;top:10214;left:91"><nobr>200000</nobr></div>
+<div style="position:absolute;top:10176;left:91"><nobr>300000</nobr></div>
+<div style="position:absolute;top:10139;left:91"><nobr>400000</nobr></div>
+<div style="position:absolute;top:10101;left:91"><nobr>500000</nobr></div>
+<div style="position:absolute;top:10215;left:87"><nobr>throughput (puts/second)</nobr></div>
+<div style="position:absolute;top:10080;left:138"><nobr>subquorum size=3</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:10340;left:89"><nobr>Fig. 8. Consensus scales linearly as the number of replicas increases.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:10421;left:88"><nobr>Figure 6 shows a 3-subquorum configuration where one</nobr></div>
+<div style="position:absolute;top:10439;left:73"><nobr>entire subquorum becomes partitioned from the others. After</nobr></div>
+<div style="position:absolute;top:10457;left:73"><nobr>a timeout, the root uses an epoch change to re-allocate</nobr></div>
+<div style="position:absolute;top:10475;left:73"><nobr>the namespace of the partitioned subquorum over the two</nobr></div>
+<div style="position:absolute;top:10492;left:73"><nobr>remaining subquorums. The partitioned subquorum eventually</nobr></div>
+<div style="position:absolute;top:10510;left:73"><nobr>has an heuristic obligation timeout, after which the root</nobr></div>
+<div style="position:absolute;top:10528;left:73"><nobr>quorum is not obliged to leave the shard with the current</nobr></div>
+<div style="position:absolute;top:10546;left:73"><nobr>subquorum. The shard may then be re-assigned to any other</nobr></div>
+<div style="position:absolute;top:10564;left:73"><nobr>subquorum. Timeouts are structured such that by the time</nobr></div>
+<div style="position:absolute;top:10582;left:73"><nobr>an obligation timeout fires, the root quorum has already re-</nobr></div>
+<div style="position:absolute;top:10600;left:73"><nobr>mapped that subquorum’s shard to other subquorums. As a</nobr></div>
+<div style="position:absolute;top:10618;left:73"><nobr>result, the system is able to recover from the partition as fast</nobr></div>
+<div style="position:absolute;top:10636;left:73"><nobr>as possible. In this figure, the repartition occurs through two</nobr></div>
+<div style="position:absolute;top:10654;left:73"><nobr>epoch changes, the first allocating part of the namespace to</nobr></div>
+<div style="position:absolute;top:10672;left:73"><nobr>the first subquorum, and the second allocating the rest of</nobr></div>
+<div style="position:absolute;top:10690;left:73"><nobr>the namespace to the other. Gaps in the graph are periods</nobr></div>
+<div style="position:absolute;top:10708;left:73"><nobr>where the subquorums are electing local leaders. This may</nobr></div>
+<div style="position:absolute;top:10726;left:73"><nobr>be optimized by having leadership assigned or maintained</nobr></div>
+<div style="position:absolute;top:10744;left:73"><nobr>through root consensus.</nobr></div>
+<div style="position:absolute;top:10077;left:468"><nobr>C. Planet Scale Consensus</nobr></div>
+<div style="position:absolute;top:10103;left:483"><nobr>In our final implementation we ran our repaired version of</nobr></div>
+<div style="position:absolute;top:10121;left:468"><nobr>HC at a planetary scale. We created a system with 105 replicas</nobr></div>
+<div style="position:absolute;top:10139;left:468"><nobr>in 15 regions in 5 continents. The system allocated size 3</nobr></div>
+<div style="position:absolute;top:10157;left:468"><nobr>subquorums round-robin to each region such that the largest</nobr></div>
+<div style="position:absolute;top:10175;left:468"><nobr>system was comprised of 6 subquorums per region with 1 hot-</nobr></div>
+<div style="position:absolute;top:10193;left:468"><nobr>spare per region. Figure 8 shows the global blast throughput of</nobr></div>
+<div style="position:absolute;top:10211;left:468"><nobr>the system, the sum of throughput of client process that fired</nobr></div>
+<div style="position:absolute;top:10229;left:468"><nobr>off 1000 concurrent requests, timing the complete response.</nobr></div>
+<div style="position:absolute;top:10247;left:468"><nobr>To mitigate the effect of global latency, each region ran</nobr></div>
+<div style="position:absolute;top:10265;left:468"><nobr>independent blast clients to its local subquorums, forwarding</nobr></div>
+<div style="position:absolute;top:10282;left:468"><nobr>to remote quorums where necessary. To ensure that the system</nobr></div>
+<div style="position:absolute;top:10300;left:468"><nobr>was fully throttled during the throughput experiment, we</nobr></div>
+<div style="position:absolute;top:10318;left:468"><nobr>timed the clients to execute simultaneously using the AWS</nobr></div>
+<div style="position:absolute;top:10336;left:468"><nobr>Time Sync service to ensure that clocks were within 100</nobr></div>
+<div style="position:absolute;top:10354;left:468"><nobr>nanoseconds of each other. In these results we show that</nobr></div>
+<div style="position:absolute;top:10372;left:468"><nobr>our HC implementation does indeed scale linearly. Adding</nobr></div>
+<div style="position:absolute;top:10390;left:468"><nobr>more nodes to the system increases the fault tolerance (e.g.</nobr></div>
+<div style="position:absolute;top:10408;left:468"><nobr>by allocating hot s pares) if enough nodes are added to add</nobr></div>
+<div style="position:absolute;top:10426;left:468"><nobr>another subquorum, the capacity of the system to handle client</nobr></div>
+<div style="position:absolute;top:10444;left:468"><nobr>requests is also increased.</nobr></div>
+<div style="position:absolute;top:10481;left:586"><nobr>VII. R<font style="font-size:9px">ELATED </font>W<font style="font-size:9px">ORK</font></nobr></div>
+<div style="position:absolute;top:10509;left:483"><nobr>The principal contribution of this paper, hierarchical con-</nobr></div>
+<div style="position:absolute;top:10527;left:468"><nobr>sensus, follows from the large body of work on improving</nobr></div>
+<div style="position:absolute;top:10545;left:468"><nobr>throughput in distributed consensus over the Paxos proto-</nobr></div>
+<div style="position:absolute;top:10563;left:468"><nobr>col [13], [19], [20], [25], and on Raft [14], [26], which focus</nobr></div>
+<div style="position:absolute;top:10581;left:468"><nobr>primarily on fast vs. slow path consensus, eliding phases with</nobr></div>
+<div style="position:absolute;top:10599;left:468"><nobr>dependency resolution, and load balancing.</nobr></div>
+<div style="position:absolute;top:10618;left:483"><nobr>Our work is orthogonal to these in that subquorums and the</nobr></div>
+<div style="position:absolute;top:10636;left:468"><nobr>root quorum can be implemented with different underlying</nobr></div>
+<div style="position:absolute;top:10654;left:468"><nobr>consensus algorithms, though the two levels must be inte-</nobr></div>
+<div style="position:absolute;top:10672;left:468"><nobr>grated quite tightly. Further, HC abstracts reconfiguration away</nobr></div>
+<div style="position:absolute;top:10690;left:468"><nobr>from subquorum consensus, allowing multiple subquorums to</nobr></div>
+<div style="position:absolute;top:10708;left:468"><nobr>move into new configurations and reducing the need for joint</nobr></div>
+<div style="position:absolute;top:10726;left:468"><nobr>consensus [26] and other heavyweight procedures. Finally, its</nobr></div>
+<div style="position:absolute;top:10744;left:468"><nobr>hierarchical nature allows the system to multiplex multiple</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:10867;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="10"><b>Page 10</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:11335;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:10945;left:73"><nobr>consensus instances on disjoint partitions of the object space</nobr></div>
+<div style="position:absolute;top:10963;left:73"><nobr>while still maintaining global consistency guarantees.</nobr></div>
+<div style="position:absolute;top:10981;left:88"><nobr>The global consistency guarantees of HC are in direct</nobr></div>
+<div style="position:absolute;top:10999;left:73"><nobr>contrast to other systems that scale by exploiting multiple</nobr></div>
+<div style="position:absolute;top:11017;left:73"><nobr>consensus instances [10], [18] on a per-object basis. These</nobr></div>
+<div style="position:absolute;top:11035;left:73"><nobr>systems retain the advantage of small quorum sizes but can-</nobr></div>
+<div style="position:absolute;top:11053;left:73"><nobr>not provide system-wide consistency invariants. Another set</nobr></div>
+<div style="position:absolute;top:11071;left:73"><nobr>of systems uses quorum-based decision-making but relaxes</nobr></div>
+<div style="position:absolute;top:11089;left:73"><nobr>consistency guarantees [9], [11]; others provide no way to</nobr></div>
+<div style="position:absolute;top:11107;left:73"><nobr>pivot the entire system to a new configuration [12]. Chain</nobr></div>
+<div style="position:absolute;top:11125;left:73"><nobr>replication [29] and Vertical Paxos [22], [23] are among ap-</nobr></div>
+<div style="position:absolute;top:11143;left:73"><nobr>proaches that control Paxos instances through other consensus</nobr></div>
+<div style="position:absolute;top:11161;left:73"><nobr>decisions. However, HC differs in the deep integration of</nobr></div>
+<div style="position:absolute;top:11179;left:73"><nobr>the two different levels. Whereas these approaches are top</nobr></div>
+<div style="position:absolute;top:11196;left:73"><nobr>down, HC consensus decisions at the root level replace system</nobr></div>
+<div style="position:absolute;top:11214;left:73"><nobr>configuration at the subquorum level, and vice versa.</nobr></div>
+<div style="position:absolute;top:11232;left:88"><nobr>Possibly the closest system to HC is Scatter [12], which uses</nobr></div>
+<div style="position:absolute;top:11250;left:73"><nobr>an overlay to organize consistent groups into a ring. Neighbors</nobr></div>
+<div style="position:absolute;top:11268;left:73"><nobr>can join, split, and talk amongst themselves. The bottom-</nobr></div>
+<div style="position:absolute;top:11286;left:73"><nobr>up approach potentially allows scaling to many subquorums,</nobr></div>
+<div style="position:absolute;top:11304;left:73"><nobr>but the lack of central control makes it hard to implement</nobr></div>
+<div style="position:absolute;top:11322;left:73"><nobr>global re-maps beyond the reach of local neighbors. HC</nobr></div>
+<div style="position:absolute;top:11340;left:73"><nobr>ties root quorum and subquorums tightly together, allowing</nobr></div>
+<div style="position:absolute;top:11358;left:73"><nobr>root quorum decisions to completely reconfigure the running</nobr></div>
+<div style="position:absolute;top:11376;left:73"><nobr>system on the fly either on demand or by detecting changes</nobr></div>
+<div style="position:absolute;top:11394;left:73"><nobr>in network conditions.</nobr></div>
+<div style="position:absolute;top:11412;left:88"><nobr>Recent work has similarly explored a more strategic ap-</nobr></div>
+<div style="position:absolute;top:11430;left:73"><nobr>proach to data placement; Akkio [3], [16], for instance,</nobr></div>
+<div style="position:absolute;top:11448;left:73"><nobr>optimizes shard placement using access latency as the cost</nobr></div>
+<div style="position:absolute;top:11466;left:73"><nobr>function. HC goes a step further, offering not optimization but</nobr></div>
+<div style="position:absolute;top:11484;left:73"><nobr>rather fine grain control over data placement, which allows</nobr></div>
+<div style="position:absolute;top:11502;left:73"><nobr>applications to determine their own use-case specific cost</nobr></div>
+<div style="position:absolute;top:11520;left:73"><nobr>functions and heuristics.</nobr></div>
+<div style="position:absolute;top:11538;left:88"><nobr>We claim very strong consistency across a large distributed</nobr></div>
+<div style="position:absolute;top:11556;left:73"><nobr>system, similar to Spanner [10]. Spanner provides linearizable</nobr></div>
+<div style="position:absolute;top:11574;left:73"><nobr>transactions through use of special hardware and environ-</nobr></div>
+<div style="position:absolute;top:11591;left:73"><nobr>ments, which are used to tightly synchronize clocks in the</nobr></div>
+<div style="position:absolute;top:11609;left:73"><nobr>distributed setting. Spanner therefore relies on a very specific,</nobr></div>
+<div style="position:absolute;top:11627;left:73"><nobr>curated environment. HC targets a wider range of systems that</nobr></div>
+<div style="position:absolute;top:11645;left:73"><nobr>require cost effective scaling in the data center to rich dynamic</nobr></div>
+<div style="position:absolute;top:11663;left:73"><nobr>environments with heterogeneity on all levels.</nobr></div>
+<div style="position:absolute;top:11681;left:88"><nobr>Finally, shared logs have proven useful in a number of</nobr></div>
+<div style="position:absolute;top:11699;left:73"><nobr>settings from fault tolerance to correctness guarantees. How-</nobr></div>
+<div style="position:absolute;top:11717;left:73"><nobr>ever, keeping such logs consistent in even a single consensus</nobr></div>
+<div style="position:absolute;top:11735;left:73"><nobr>instance has proven difficult [7], [15]. More recent systems are</nobr></div>
+<div style="position:absolute;top:11753;left:73"><nobr>leveraging hardware support to provide fast access to shared</nobr></div>
+<div style="position:absolute;top:11771;left:73"><nobr>logs [2], [5], [31]. To our knowledge, hierarchical consensus</nobr></div>
+<div style="position:absolute;top:11789;left:73"><nobr>is the first work to propose synchronizing shared logs across</nobr></div>
+<div style="position:absolute;top:11807;left:73"><nobr>multiple discrete consensus instances in the wide area.</nobr></div>
+<div style="position:absolute;top:11836;left:202"><nobr>VIII. D<font style="font-size:9px">ISCUSSION</font></nobr></div>
+<div style="position:absolute;top:11860;left:88"><nobr>Alia takes a different approach to implementing geo-</nobr></div>
+<div style="position:absolute;top:11878;left:73"><nobr>distributed systems, focusing on a system’s ability to be flex-</nobr></div>
+<div style="position:absolute;top:11896;left:73"><nobr>ible. Flexibility ensures that the system can balance require-</nobr></div>
+<div style="position:absolute;top:11914;left:73"><nobr>ments for throughput and availability while still maintaining</nobr></div>
+<div style="position:absolute;top:11932;left:73"><nobr>the strongest possible consistency semantics. To achieve this,</nobr></div>
+<div style="position:absolute;top:10945;left:468"><nobr>Alia is based on three primary design requirements that inform</nobr></div>
+<div style="position:absolute;top:10963;left:468"><nobr>the rest of the framework.</nobr></div>
+<div style="position:absolute;top:10981;left:483"><nobr>Requirement 1: Systems should be as fluid as the informa-</nobr></div>
+<div style="position:absolute;top:10999;left:468"><nobr>tion they contain. Many systems are optimistic, they assume</nobr></div>
+<div style="position:absolute;top:11017;left:468"><nobr>that conflict is rare and that objects are accessed in standard</nobr></div>
+<div style="position:absolute;top:11035;left:468"><nobr>patterns that change. In our experience, both people and</nobr></div>
+<div style="position:absolute;top:11053;left:468"><nobr>information flows freely therefore a system must accommodate</nobr></div>
+<div style="position:absolute;top:11071;left:468"><nobr>organic and shifting usage patterns; for example a set of</nobr></div>
+<div style="position:absolute;top:11089;left:468"><nobr>objects may primarily be accessed only in daylight, requiring</nobr></div>
+<div style="position:absolute;top:11107;left:468"><nobr>the system to adapt by moving the coordinating replicas to</nobr></div>
+<div style="position:absolute;top:11125;left:468"><nobr>the locales currently in working hours. To accommodate this</nobr></div>
+<div style="position:absolute;top:11143;left:468"><nobr>requirement, Alia is designed to regularly and safely transition</nobr></div>
+<div style="position:absolute;top:11161;left:468"><nobr>through reconfigurations called epoch changes, reallocating</nobr></div>
+<div style="position:absolute;top:11179;left:468"><nobr>replicas into subquorums to manage specific partitions of the</nobr></div>
+<div style="position:absolute;top:11196;left:468"><nobr>namespace. Epoch changes are fuzzy to ensure that reconfig-</nobr></div>
+<div style="position:absolute;top:11214;left:468"><nobr>uration does not need to be synchronous and hand-offs are</nobr></div>
+<div style="position:absolute;top:11232;left:468"><nobr>optimized through anti-entropy replication of data.</nobr></div>
+<div style="position:absolute;top:11251;left:483"><nobr>Requirement 2: No partial failures. A system’s size should</nobr></div>
+<div style="position:absolute;top:11268;left:468"><nobr>be its advantage – allowing increased throughput with linear</nobr></div>
+<div style="position:absolute;top:11286;left:468"><nobr>scaling, and better placement to optimize accesses. Often,</nobr></div>
+<div style="position:absolute;top:11304;left:468"><nobr>however, a system’s size increases its complexity and it’s</nobr></div>
+<div style="position:absolute;top:11322;left:468"><nobr>susceptibility to unique failures such as correlated cascading</nobr></div>
+<div style="position:absolute;top:11340;left:468"><nobr>failure.</nobr></div>
+<div style="position:absolute;top:11358;left:483"><nobr>Alia is designed with a single process model – the same</nobr></div>
+<div style="position:absolute;top:11376;left:468"><nobr>process participating in the root quorum also handles messages</nobr></div>
+<div style="position:absolute;top:11394;left:468"><nobr>for the subquorum(s) the process has been assigned to. This</nobr></div>
+<div style="position:absolute;top:11412;left:468"><nobr>model ensures that if a replica fails it cannot participate in</nobr></div>
+<div style="position:absolute;top:11430;left:468"><nobr>some decision making, such as configuration, but not others,</nobr></div>
+<div style="position:absolute;top:11448;left:468"><nobr>such as accesses. This requirement also allows us to more</nobr></div>
+<div style="position:absolute;top:11466;left:468"><nobr>easily tackle complex failures; such as using a disaster timeout</nobr></div>
+<div style="position:absolute;top:11484;left:468"><nobr>to ensure progress even with a worst-case failure of delegates,</nobr></div>
+<div style="position:absolute;top:11502;left:468"><nobr>or ensuring that leases are either respected or replaced for</nobr></div>
+<div style="position:absolute;top:11520;left:468"><nobr>whole subquorums that fall out of communication.</nobr></div>
+<div style="position:absolute;top:11538;left:483"><nobr>Requirement 3: Consistency semantics must be transparent</nobr></div>
+<div style="position:absolute;top:11556;left:468"><nobr>and interpretable. As privacy and security become increasingly</nobr></div>
+<div style="position:absolute;top:11574;left:468"><nobr>important requirements of distributed systems, consistency is</nobr></div>
+<div style="position:absolute;top:11591;left:468"><nobr>no longer about ensuring that your boss cannot see your Spring</nobr></div>
+<div style="position:absolute;top:11609;left:468"><nobr>Break pictures on a social network wall. Instead, consistency</nobr></div>
+<div style="position:absolute;top:11627;left:468"><nobr>is about ensuring that the correct operations are being executed</nobr></div>
+<div style="position:absolute;top:11645;left:468"><nobr>on the correct replicas and that data can be audited to discover</nobr></div>
+<div style="position:absolute;top:11663;left:468"><nobr>its exact placement. Alia ensures that there is an intersection</nobr></div>
+<div style="position:absolute;top:11681;left:468"><nobr>between subquorums where data accesses are taking place and</nobr></div>
+<div style="position:absolute;top:11699;left:468"><nobr>the root quorum where configuration and namespace partitions</nobr></div>
+<div style="position:absolute;top:11717;left:468"><nobr>are occurring. This intersection is optimized by delegated</nobr></div>
+<div style="position:absolute;top:11735;left:468"><nobr>voting to ensure that the root quorum can make progress and</nobr></div>
+<div style="position:absolute;top:11753;left:468"><nobr>remain fluid. The intersection also guarantees that a complete,</nobr></div>
+<div style="position:absolute;top:11771;left:468"><nobr>externalizable log of events for the global system can be</nobr></div>
+<div style="position:absolute;top:11789;left:468"><nobr>exported on demand.</nobr></div>
+<div style="position:absolute;top:11818;left:599"><nobr>IX. C<font style="font-size:9px">ONCLUSION</font></nobr></div>
+<div style="position:absolute;top:11842;left:483"><nobr>The next generation of distributed systems will be geo-</nobr></div>
+<div style="position:absolute;top:11860;left:468"><nobr>graphically replicated around the planet in order to provide</nobr></div>
+<div style="position:absolute;top:11878;left:468"><nobr>better performance by preventing bottlenecks and localizing</nobr></div>
+<div style="position:absolute;top:11896;left:468"><nobr>accesses to international and highly mobile users and to</nobr></div>
+<div style="position:absolute;top:11914;left:468"><nobr>provide durability in the face of catastrophic failure. We have</nobr></div>
+<div style="position:absolute;top:11932;left:468"><nobr>presented hierarchical consensus and Alia, an extension and</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:12055;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="11"><b>Page 11</b></a></font></td></tr></tbody></table></div><font size="6" face="Times" color="#f1a6a8"><span style="font-size:42px;font-family:Times;color:#f1a6a8">
+<div style="position:absolute;top:12523;left:865"><nobr>Draft</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:12133;left:73"><nobr>implementation of Vertical Paxos, that are designed to scale</nobr></div>
+<div style="position:absolute;top:12151;left:73"><nobr>coordination and transparently provide strong consistency in</nobr></div>
+<div style="position:absolute;top:12169;left:73"><nobr>order to build and deploy systems that span globe. HC is</nobr></div>
+<div style="position:absolute;top:12187;left:73"><nobr>a framework of intersecting tiers of quorums whose primary</nobr></div>
+<div style="position:absolute;top:12205;left:73"><nobr>benefit is flexibility, which allows large systems to dynamically</nobr></div>
+<div style="position:absolute;top:12223;left:73"><nobr>adapt to changing conditions, improving both performance and</nobr></div>
+<div style="position:absolute;top:12241;left:73"><nobr>maintainability.</nobr></div>
+<div style="position:absolute;top:12260;left:88"><nobr>Hierarchical consensus handles challenges of geo-</nobr></div>
+<div style="position:absolute;top:12278;left:73"><nobr>distributed consensus through flexible reconfiguration.</nobr></div>
+<div style="position:absolute;top:12296;left:73"><nobr>Increasing network distance between replicas increases</nobr></div>
+<div style="position:absolute;top:12313;left:73"><nobr>latency and the probability of network partitions, making</nobr></div>
+<div style="position:absolute;top:12331;left:73"><nobr>strong consistency a challenge. To handle this, we separate</nobr></div>
+<div style="position:absolute;top:12349;left:73"><nobr>the concerns of placement and access decisions to the</nobr></div>
+<div style="position:absolute;top:12367;left:73"><nobr>root quorum and subquorums, allowing as much of the</nobr></div>
+<div style="position:absolute;top:12385;left:73"><nobr>system to operate as independently as possible. Centralized</nobr></div>
+<div style="position:absolute;top:12403;left:73"><nobr>administration is impossible in a global context, so the</nobr></div>
+<div style="position:absolute;top:12421;left:73"><nobr>root quorum is able to adapt the system automatically by</nobr></div>
+<div style="position:absolute;top:12439;left:73"><nobr>observing conditions and applying policy-driven changes to</nobr></div>
+<div style="position:absolute;top:12457;left:73"><nobr>the system in real time with fuzzy transitions. To ensure</nobr></div>
+<div style="position:absolute;top:12475;left:73"><nobr>correct reasoning of global consistency semantics and reduce</nobr></div>
+<div style="position:absolute;top:12493;left:73"><nobr>the complexity of independent-subsystems with different</nobr></div>
+<div style="position:absolute;top:12511;left:73"><nobr>failure modes, HC ensures that there is an intersection of the</nobr></div>
+<div style="position:absolute;top:12529;left:73"><nobr>root quorum and subs. This intersection requires all nodes to</nobr></div>
+<div style="position:absolute;top:12547;left:73"><nobr>participate in the root quorum, so to scale this quorum, we</nobr></div>
+<div style="position:absolute;top:12564;left:73"><nobr>introduce delegated voting to improve globally availability.</nobr></div>
+<div style="position:absolute;top:12582;left:73"><nobr>Finally, because objects have different requirements for</nobr></div>
+<div style="position:absolute;top:12600;left:73"><nobr>availability or durability, data placement rules and subquorum</nobr></div>
+<div style="position:absolute;top:12618;left:73"><nobr>behavior can be adjusted for different geographic access</nobr></div>
+<div style="position:absolute;top:12636;left:73"><nobr>patterns.</nobr></div>
+<div style="position:absolute;top:12672;left:220"><nobr>R<font style="font-size:9px">EFERENCES</font></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:12701;left:79"><nobr>[1] CockroachDB Geo-Partitioning, 2020.</nobr></div>
+<div style="position:absolute;top:12715;left:79"><nobr>[2] David G Andersen, Jason Franklin, Michael Kaminsky, Amar Phan-</nobr></div>
+<div style="position:absolute;top:12729;left:101"><nobr>ishayee, Lawrence Tan, and Vijay Vasudevan. FAWN: A fast array of</nobr></div>
+<div style="position:absolute;top:12742;left:101"><nobr>wimpy nodes. In Proceedings of the ACM SIGOPS 22nd Symposium on</nobr></div>
+<div style="position:absolute;top:12756;left:101"><nobr>Operating Systems Principles, pages 1–14. ACM, 2009.</nobr></div>
+<div style="position:absolute;top:12769;left:79"><nobr>[3] Muthukaruppan Annamalai, Kaushik Ravichandran, Harish Srinivas,</nobr></div>
+<div style="position:absolute;top:12783;left:101"><nobr>Igor Zinkovsky, Luning Pan, Tony Savor, David Nagle, and Michael</nobr></div>
+<div style="position:absolute;top:12796;left:101"><nobr>Stumm. Sharding the shards: Managing datastore locality at scale with</nobr></div>
+<div style="position:absolute;top:12810;left:101"><nobr>Akkio. In 13th USENIX Symposium on Operating Systems Design and</nobr></div>
+<div style="position:absolute;top:12823;left:101"><nobr>Implementation (OSDI 18), pages 445–460, 2018.</nobr></div>
+<div style="position:absolute;top:12837;left:79"><nobr>[4] Jason Baker, Chris Bond, James C. Corbett, J. J. Furman, Andrey</nobr></div>
+<div style="position:absolute;top:12851;left:101"><nobr>Khorlin, James Larson, Jean-Michel Leon, Yawei Li, Alexander Lloyd,</nobr></div>
+<div style="position:absolute;top:12864;left:101"><nobr>and Vadim Yushprakh. Megastore: Providing Scalable, Highly Available</nobr></div>
+<div style="position:absolute;top:12878;left:101"><nobr>Storage for Interactive Services. In CIDR, volume 11, pages 223–234,</nobr></div>
+<div style="position:absolute;top:12891;left:101"><nobr>2011.</nobr></div>
+<div style="position:absolute;top:12905;left:79"><nobr>[5] Mahesh Balakrishnan, Dahlia Malkhi, Ted Wobber, Ming Wu, Vijayan</nobr></div>
+<div style="position:absolute;top:12918;left:101"><nobr>Prabhakaran, Michael Wei, John D Davis, Sriram Rao, Tao Zou, and</nobr></div>
+<div style="position:absolute;top:12932;left:101"><nobr>Aviad Zuck. Tango: Distributed data structures over a shared log.</nobr></div>
+<div style="position:absolute;top:12945;left:101"><nobr>In Proceedings of the Twenty-Fourth ACM Symposium on Operating</nobr></div>
+<div style="position:absolute;top:12959;left:101"><nobr>Systems Principles, pages 325–340. ACM, 2013.</nobr></div>
+<div style="position:absolute;top:12973;left:79"><nobr>[6] Martin Biely, Zoran Milosevic, Nuno Santos, and Andre Schiper. S-</nobr></div>
+<div style="position:absolute;top:12986;left:101"><nobr>paxos: Offloading the leader for high throughput state machine repli-</nobr></div>
+<div style="position:absolute;top:13000;left:101"><nobr>cation. In Reliable Distributed Systems (SRDS), 2012 IEEE 31st</nobr></div>
+<div style="position:absolute;top:13013;left:101"><nobr>Symposium On, pages 111–120. IEEE, 2012.</nobr></div>
+<div style="position:absolute;top:13027;left:79"><nobr>[7] Mike Burrows. The Chubby lock service for loosely-coupled distributed</nobr></div>
+<div style="position:absolute;top:13040;left:101"><nobr>systems. In Proceedings of the 7th Symposium on Operating Systems</nobr></div>
+<div style="position:absolute;top:13054;left:101"><nobr>Design and Implementation, pages 335–350. USENIX Association,</nobr></div>
+<div style="position:absolute;top:13067;left:101"><nobr>2006.</nobr></div>
+<div style="position:absolute;top:13081;left:79"><nobr>[8] Lásaro Jonas Camargos, Rodrigo Malta Schmidt, and Fernando Pedone.</nobr></div>
+<div style="position:absolute;top:13095;left:101"><nobr>Multicoordinated paxos. In Proceedings of the Twenty-Sixth Annual</nobr></div>
+<div style="position:absolute;top:13108;left:101"><nobr>ACM Symposium on Principles of Distributed Computing, pages 316–</nobr></div>
+<div style="position:absolute;top:13122;left:101"><nobr>317. ACM, 2007.</nobr></div>
+<div style="position:absolute;top:12135;left:474"><nobr>[9] Brian F. Cooper, Raghu Ramakrishnan, Utkarsh Srivastava, Adam</nobr></div>
+<div style="position:absolute;top:12149;left:495"><nobr>Silberstein, Philip Bohannon, Hans-Arno Jacobsen, Nick Puz, Daniel</nobr></div>
+<div style="position:absolute;top:12162;left:495"><nobr>Weaver, and Ramana Yerneni. PNUTS: Yahoo!’s hosted data serving</nobr></div>
+<div style="position:absolute;top:12176;left:495"><nobr>platform. 1(2):1277–1288, 2008.</nobr></div>
+<div style="position:absolute;top:12189;left:468"><nobr>[10] James C. Corbett, Jeffrey Dean, Michael Epstein, Andrew Fikes,</nobr></div>
+<div style="position:absolute;top:12203;left:495"><nobr>Christopher Frost, J. J. Furman, Sanjay Ghemawat, Andrey Gubarev,</nobr></div>
+<div style="position:absolute;top:12216;left:495"><nobr>Christopher Heiser, Peter Hochschild, et al. Spanner: Google’s globally</nobr></div>
+<div style="position:absolute;top:12229;left:495"><nobr>distributed database. 31(3):8, 2013.</nobr></div>
+<div style="position:absolute;top:12243;left:468"><nobr>[11] Giuseppe DeCandia, Deniz Hastorun, Madan Jampani, Gunavardhan</nobr></div>
+<div style="position:absolute;top:12256;left:495"><nobr>Kakulapati, Avinash Lakshman, Alex Pilchin, Swaminathan Sivasubra-</nobr></div>
+<div style="position:absolute;top:12270;left:495"><nobr>manian, Peter Vosshall, and Werner Vogels. Dynamo: Amazon’s highly</nobr></div>
+<div style="position:absolute;top:12283;left:495"><nobr>available key-value store. In ACM SIGOPS Operating Systems Review,</nobr></div>
+<div style="position:absolute;top:12297;left:495"><nobr>volume 41, pages 205–220. ACM, 2007.</nobr></div>
+<div style="position:absolute;top:12310;left:468"><nobr>[12] Lisa Glendenning, Ivan Beschastnikh, Arvind Krishnamurthy, and</nobr></div>
+<div style="position:absolute;top:12324;left:495"><nobr>Thomas Anderson. Scalable consistency in Scatter. In Proceedings</nobr></div>
+<div style="position:absolute;top:12337;left:495"><nobr>of the Twenty-Third ACM Symposium on Operating Systems Principles,</nobr></div>
+<div style="position:absolute;top:12350;left:495"><nobr>pages 15–28. ACM, 2011.</nobr></div>
+<div style="position:absolute;top:12364;left:468"><nobr>[13] H. Howard, D. Malkhi, and A. Spiegelman. Flexible Paxos: Quorum</nobr></div>
+<div style="position:absolute;top:12377;left:495"><nobr>intersection revisited. 2016-08.</nobr></div>
+<div style="position:absolute;top:12391;left:468"><nobr>[14] Heidi Howard, Malte Schwarzkopf, Anil Madhavapeddy, and Jon</nobr></div>
+<div style="position:absolute;top:12404;left:495"><nobr>Crowcroft. Raft refloated: Do we have consensus? 49(1):12–21, 2015.</nobr></div>
+<div style="position:absolute;top:12418;left:468"><nobr>[15] Patrick Hunt, Mahadev Konar, Flavio Paiva Junqueira, and Benjamin</nobr></div>
+<div style="position:absolute;top:12431;left:495"><nobr>Reed. ZooKeeper: Wait-free Coordination for Internet-scale Systems.</nobr></div>
+<div style="position:absolute;top:12445;left:495"><nobr>In USENIX Annual Technical Conference, volume 8, page 9, 2010.</nobr></div>
+<div style="position:absolute;top:12458;left:468"><nobr>[16] Sudarshan Kadambi, Jianjun Chen, Brian F. Cooper, David Lomax,</nobr></div>
+<div style="position:absolute;top:12471;left:495"><nobr>Raghu Ramakrishnan, Adam Silberstein, Erwin Tam, and Hector Garcia-</nobr></div>
+<div style="position:absolute;top:12485;left:495"><nobr>Molina. Where in the world is my data. In Proceedings International</nobr></div>
+<div style="position:absolute;top:12499;left:495"><nobr>Conference on Very Large Data Bases (VLDB), 2011.</nobr></div>
+<div style="position:absolute;top:12512;left:468"><nobr>[17] Matt Klein. Lyft’s Envoy: Experiences Operating a Large Service Mesh.</nobr></div>
+<div style="position:absolute;top:12525;left:495"><nobr>2017.</nobr></div>
+<div style="position:absolute;top:12539;left:468"><nobr>[18] Tim Kraska, Gene Pang, Michael J. Franklin, Samuel Madden, and Alan</nobr></div>
+<div style="position:absolute;top:12552;left:495"><nobr>Fekete. MDCC: Multi-Data Center Consistency. In Proceedings of the</nobr></div>
+<div style="position:absolute;top:12566;left:495"><nobr>8th ACM European Conference on Computer Systems, pages 113–126.</nobr></div>
+<div style="position:absolute;top:12579;left:495"><nobr>ACM, 2013.</nobr></div>
+<div style="position:absolute;top:12593;left:468"><nobr>[19] Leslie Lamport. Paxos made simple. 32(4):18–25, 2001.</nobr></div>
+<div style="position:absolute;top:12606;left:468"><nobr>[20] Leslie Lamport. Generalized consensus and Paxos, 2005.</nobr></div>
+<div style="position:absolute;top:12619;left:468"><nobr>[21] Leslie Lamport. Fast paxos. 19(2):79–103, 2006.</nobr></div>
+<div style="position:absolute;top:12633;left:468"><nobr>[22] Leslie Lamport, Dahlia Malkhi, and Lidong Zhou. Vertical paxos and</nobr></div>
+<div style="position:absolute;top:12646;left:495"><nobr>primary-backup replication. In Proceedings of the 28th ACM Symposium</nobr></div>
+<div style="position:absolute;top:12660;left:495"><nobr>on Principles of Distributed Computing, pages 312–313. ACM, 2009.</nobr></div>
+<div style="position:absolute;top:12673;left:468"><nobr>[23] John MacCormick, Chandramohan A. Thekkath, Marcus Jager, Kristof</nobr></div>
+<div style="position:absolute;top:12687;left:495"><nobr>Roomp, Lidong Zhou, and Ryan Peterson. Niobe: A practical replication</nobr></div>
+<div style="position:absolute;top:12700;left:495"><nobr>protocol. 3(4):1, 2008.</nobr></div>
+<div style="position:absolute;top:12714;left:468"><nobr>[24] Yanhua Mao, Flavio Paiva Junqueira, and Keith Marzullo. Mencius:</nobr></div>
+<div style="position:absolute;top:12727;left:495"><nobr>Building efficient replicated state machines for WANs. In OSDI,</nobr></div>
+<div style="position:absolute;top:12740;left:495"><nobr>volume 8, pages 369–384, 2008.</nobr></div>
+<div style="position:absolute;top:12754;left:468"><nobr>[25] Iulian Moraru, David G. Andersen, and Michael Kaminsky. There is</nobr></div>
+<div style="position:absolute;top:12767;left:495"><nobr>more consensus in egalitarian parliaments. In Proceedings of the Twenty-</nobr></div>
+<div style="position:absolute;top:12781;left:495"><nobr>Fourth ACM Symposium on Operating Systems Principles, pages 358–</nobr></div>
+<div style="position:absolute;top:12794;left:495"><nobr>372. ACM, 2013.</nobr></div>
+<div style="position:absolute;top:12808;left:468"><nobr>[26] Diego Ongaro and John Ousterhout. In search of an understandable</nobr></div>
+<div style="position:absolute;top:12821;left:495"><nobr>consensus algorithm. In 2014 USENIX Annual Technical Conference</nobr></div>
+<div style="position:absolute;top:12835;left:495"><nobr>(USENIX ATC 14), pages 305–319, 2014.</nobr></div>
+<div style="position:absolute;top:12848;left:468"><nobr>[27] Aashaka Shah, Vinay Banakar, Supreeth Shastri, Melissa Wasserman,</nobr></div>
+<div style="position:absolute;top:12862;left:495"><nobr>and Vijay Chidambaram. Analyzing the Impact of GDPR on Storage</nobr></div>
+<div style="position:absolute;top:12875;left:495"><nobr>Systems. In 11th USENIX Workshop on Hot Topics in Storage and File</nobr></div>
+<div style="position:absolute;top:12889;left:495"><nobr>Systems (HotStorage 19), 2019.</nobr></div>
+<div style="position:absolute;top:12902;left:468"><nobr>[28] Alexander Thomson and Daniel J. Abadi. CalvinFS: Consistent wan</nobr></div>
+<div style="position:absolute;top:12915;left:495"><nobr>replication and scalable metadata management for distributed file sys-</nobr></div>
+<div style="position:absolute;top:12929;left:495"><nobr>tems. In 13th USENIX Conference on File and Storage Technologies</nobr></div>
+<div style="position:absolute;top:12942;left:495"><nobr>(FAST 15), pages 1–14, 2015.</nobr></div>
+<div style="position:absolute;top:12956;left:468"><nobr>[29] Robbert Van Renesse and Fred B Schneider. Chain Replication for</nobr></div>
+<div style="position:absolute;top:12969;left:495"><nobr>Supporting High Throughput and Availability. In OSDI, volume 4, pages</nobr></div>
+<div style="position:absolute;top:12983;left:495"><nobr>91–104, 2004.</nobr></div>
+<div style="position:absolute;top:12996;left:468"><nobr>[30] Alexandre Verbitski, Anurag Gupta, Debanjan Saha, Murali Brahmade-</nobr></div>
+<div style="position:absolute;top:13009;left:495"><nobr>sam, Kamal Gupta, Raman Mittal, Sailesh Krishnamurthy, Sandor Mau-</nobr></div>
+<div style="position:absolute;top:13023;left:495"><nobr>rice, Tengiz Kharatishvili, and Xiaofeng Bao. Amazon aurora: Design</nobr></div>
+<div style="position:absolute;top:13036;left:495"><nobr>considerations for high throughput cloud-native relational databases. In</nobr></div>
+<div style="position:absolute;top:13050;left:495"><nobr>Proceedings of the 2017 ACM International Conference on Management</nobr></div>
+<div style="position:absolute;top:13063;left:495"><nobr>of Data, pages 1041–1052. ACM, 2017.</nobr></div>
+<div style="position:absolute;top:13077;left:468"><nobr>[31] Michael Wei, Amy Tai, Christopher J Rossbach, Ittai Abraham, Maithem</nobr></div>
+<div style="position:absolute;top:13090;left:495"><nobr>Munshed, Medhavi Dhawan, Jim Stabile, Udi Wieder, Scott Fritchie,</nobr></div>
+<div style="position:absolute;top:13104;left:495"><nobr>Steven Swanson, et al. vCorfu: A Cloud-Scale Object Store on a Shared</nobr></div>
+<div style="position:absolute;top:13117;left:495"><nobr>Log. In NSDI, pages 35–49, 2017.</nobr></div>
+</span></font>
+
+
+</div><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dbcee15af874156',m:'k_bkE9D_2KBm9iJGARwYU.hZ_51OQCoJdHrSf4qtaTY-1644575721-0-AUcJbdl43fLVgK19YpbuIq/q67P5BH13zIVpZWBitOSZpjXuOt0mBNJ2PHkCDaYKrusBLNELpEivDuexEzvZ868NGCrjV0rkRoKCpxsR4gvHokANW9QEBnMJ+0cDPYWGkrP4XuGCLobiJtdwlyLptWUVwfe1CZGLG0U9jsfrvAzTztwCRR/bj4TqVXxH7j2hpamLiYWGJVDYLI7/7uEoq0nUoBb1B8NMbmn2Xr88cSEm',s:[0x99f61e94d1,0xbf0154ccdb],}})();</script></body></html>
